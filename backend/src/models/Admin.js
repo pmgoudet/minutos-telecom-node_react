@@ -14,7 +14,7 @@ export default class Admin {
     this.status = status;
   }
 
-  // When returns a JSON password is protected
+  // When it returns a JSON, password is protected
   toJSON() {
     const { password, ...safe } = this;
     return safe;

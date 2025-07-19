@@ -12,23 +12,30 @@ export function sanitizeInput(input) {
   return sanitized;
 }
 
-export function sanitizeAdminData(admin) {
-  const errors = [];
 
-  // Sanitização individual
-  const name = sanitizeInput(admin.name);
-  const email = sanitizeInput(admin.email);
-  const password = sanitizeInput(admin.password);
 
-  // Verificações
-  if (!name) errors.push("Name is required.");
-  if (!email) errors.push("Email is required.");
-  if (!password) errors.push("Password is required.");
-  if (!validator.isEmail(email)) errors.push("Invalid email format.");
+/*
+a //? EXEMPLO DE SANITIZE
 
-  if (errors.length > 0) {
-    throw new Error(errors.join(" "));
-  }
+import { sanitizeInput } from '../utils/sanitize.js';
 
-  return { name, email, password };
+export function sanitizeAdmin(req, res, next) {
+  req.body.name = sanitizeInput(req.body.name);
+  req.body.email = sanitizeInput(req.body.email);
+  req.body.password = sanitizeInput(req.body.password);
+  next(); //! INTERESSANTE AQUI
 }
+
+a //? EXEMPLO DE ROUTER
+
+import express from 'express';
+import { sanitizeAdmin } from '../middlewares/sanitizeAdmin.js';
+import { validateAdmin } from '../middlewares/validateAdmin.js';
+import { createAdmin } from '../controllers/adminController.js';
+
+const router = express.Router();
+
+router.post('/admin', sanitizeAdmin, validateAdmin, createAdmin);  //! INTERESSANTE AQUI
+
+
+*/

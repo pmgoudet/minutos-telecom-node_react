@@ -33,6 +33,7 @@ export default class AdminController {
     try {
       const id = req.params.id;
 
+      //todo gestão de erros
       if (id && Number(id)) {
         const admin = await this.adminModel.queryAdminById(id);
         if (!admin) {

@@ -1,0 +1,27 @@
+import { sanitizeInput } from "../utils/sanitize.js";
+
+
+//todo Esta função deveria ser dividida em dois middlewares:
+// 1  middlewares/sanitize.js
+// 2  middlewares/validate.js
+
+export function sanitizeAdminData(admin) {
+  const errors = [];
+
+  // Sanitização individual
+  const name = sanitizeInput(admin.name);
+  const email = sanitizeInput(admin.email);
+  const password = sanitizeInput(admin.password);
+
+  // Verificações
+  if (!name) errors.push("Name is required.");
+  if (!email) errors.push("Email is required.");
+  if (!password) errors.push("Password is required.");
+  if (!validator.isEmail(email)) errors.push("Invalid email format.");
+
+  if (errors.length > 0) {
+    throw new Error(errors.join(" "));
+  }
+
+  return { name, email, password };
+}

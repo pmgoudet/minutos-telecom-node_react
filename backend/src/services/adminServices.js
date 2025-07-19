@@ -1,4 +1,4 @@
-import { sanitizeAdminData } from '../utils/sanitize.js';
+import { sanitizeAdminData } from "../middlewares/sanitizeAdmin.js";
 import AdminModel from "../models/adminModel.js";
 import bcrypt from 'bcrypt';
 
@@ -36,5 +36,5 @@ export default class AdminServices {
     this.adminModel.queryUpdateAdmin(update, id)
   }
 
-  //TODO CRIAR AQUI UM DELETE PARA CONTROLAR A RESPOSTA QUE TEM QUE DAR O OBJETO DO ADMIN DELETADO
+  //todo CRIAR AQUI UM DELETE PARA CONTROLAR A RESPOSTA QUE TEM QUE DAR O OBJETO DO ADMIN DELETADO
 }
