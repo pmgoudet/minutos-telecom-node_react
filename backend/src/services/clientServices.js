@@ -70,9 +70,11 @@ export default class ClientServices {
     return createdClient;
   };
 
-  // async fetchUpdateClient(update, id) {
-  //   this.ClientModel.queryUpdateClient(update, id)
-  // }
+  async fetchUpdateClient(update, id) {
+    //todo CONTROLE DE TUDO
+
+    // this.ClientModel.queryUpdateClient(update, id)
+  }
 
   //todo CRIAR AQUI UM DELETE PARA CONTROLAR A RESPOSTA QUE TEM QUE DAR O OBJETO DO ADMIN DELETADO
 }

@@ -1,5 +1,5 @@
 import { sanitizeInput } from "../utils/sanitize.js";
-import validator from 'validator'; //! NAO TO CERTO DISSO
+import validator from 'validator';
 
 
 export function sanitizeClientData(client) {
@@ -39,26 +39,3 @@ export function sanitizeClientData(client) {
 
   return { name, date_of_birth, address, complement, postal_code, city, phone, email, password, client_type, status, fk_id_admin };
 }
-
-
-
-
-
-/* 
-
-a //? PASSWORD CONTROL
-
-if (password.length < 8) errors.push("Password must be at least 8 characters long.");
-if (!/[A-Z]/.test(password)) errors.push("Password must contain at least one uppercase letter.");
-if (!/[a-z]/.test(password)) errors.push("Password must contain at least one lowercase letter.");
-if (!/[0-9]/.test(password)) errors.push("Password must contain at least one number.");
-
-
-
-a //? Client type CONTROL
-
-
-a //? STATUs CONTROL
-if (!['active', 'inactive'].includes(status)) errors.push("Invalid status.");
-
-*/

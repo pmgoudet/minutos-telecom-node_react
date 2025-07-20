@@ -77,10 +77,10 @@ export default class AdminController {
 
       if (id && Number(id)) {
         const update = req.body
-        this.adminServices.fetchUpdateAdmin(update, id)
+        await this.adminServices.fetchUpdateAdmin(update, id)
 
         res.status(201)
-        res.send('Admin succesfully updated.')
+        res.send(`Admin succesfully updated.`)
       } else {
         res.status(422)
         res.send("Invalid ID.")
@@ -98,7 +98,7 @@ export default class AdminController {
       const id = req.params.id;
 
       if (id && Number(id)) {
-        this.adminModel.queryDeleteAdmin(id);
+        await this.adminModel.queryDeleteAdmin(id);
         res.status(201);
         res.send(`The admin of ID:${id} has been disabled. ${json(this.adminModel)}`);
       } else {

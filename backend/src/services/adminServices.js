@@ -1,4 +1,4 @@
-import { sanitizeAdminData } from "../middlewares/sanitizeAdmin.js";
+import { sanitizeAdminData, sanitizeUpdatedAdminData } from "../middlewares/sanitizeAdmin.js";
 import AdminModel from "../models/adminModel.js";
 import bcrypt from 'bcrypt';
 
@@ -33,7 +33,18 @@ export default class AdminServices {
   };
 
   async fetchUpdateAdmin(update, id) {
-    this.adminModel.queryUpdateAdmin(update, id)
+
+    const sanitizedUpdatedAdmin = sanitizeUpdatedAdminData(update);
+
+    // verify existing email
+    const emailExists = await this.adminModel.queryAdminByEmail(sanitizedUpdatedAdmin.email)
+    if (emailExists) {
+      throw new Error('Email already registered.');
+    }
+
+    //! falta controle de password
+
+    this.adminModel.queryUpdateAdmin(sanitizedUpdatedAdmin, id)
   }
 
   //todo CRIAR AQUI UM DELETE PARA CONTROLAR A RESPOSTA QUE TEM QUE DAR O OBJETO DO ADMIN DELETADO
