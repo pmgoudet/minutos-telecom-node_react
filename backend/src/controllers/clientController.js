@@ -81,26 +81,41 @@ export default class ClientController {
     }
   }
 
-  // async updateAdmin(req, res) {  //todo JWT para validação do ID
-  //   try {
-  //     const id = req.params.id
+  async updateClient(req, res) {  //todo JWT para validação do ID
+    try {
+      const id = req.params.id
 
-  //     if (id && Number(id)) {
-  //       const update = req.body
-  //       this.adminServices.fetchUpdateAdmin(update, id)
+      if (id && Number(id)) {
+        const { name, date_of_birth, address, complement, postal_code, city, phone, email, client_type } = req.body
 
-  //       res.status(201)
-  //       res.send('Admin succesfully updated.')
-  //     } else {
-  //       res.status(422)
-  //       res.send("Invalid ID.")
-  //     }
+        const updatedClient = new Client({
+          id_admin: Number(id),
+          name,
+          date_of_birth,
+          address,
+          complement,
+          postal_code,
+          city,
+          phone,
+          email,
+          client_type
+        })
 
-  //   } catch (error) {
-  //     res.status(500)
-  //     res.send(error.message)
-  //   }
-  // }
+        await this.clientServices.fetchUpdateClient(updatedClient, id)
+
+        res.status(201)
+        res.send('Client succesfully updated.')
+        //todo -> aqui ia ser legal colocar o dado antigo e o novo para dar tempo de copiar se errar
+      } else {
+        res.status(422)
+        res.send("Invalid ID.")
+      }
+
+    } catch (error) {
+      res.status(500)
+      res.send(error.message)
+    }
+  }
 
   // async deleteAdmin(req, res) {
 

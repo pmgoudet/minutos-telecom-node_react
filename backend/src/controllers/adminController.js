@@ -76,8 +76,14 @@ export default class AdminController {
       const id = req.params.id
 
       if (id && Number(id)) {
-        const update = req.body
-        await this.adminServices.fetchUpdateAdmin(update, id)
+        const { name, email } = req.body
+        const updatedAdmin = new Admin({
+          id_admin: Number(id),
+          name,
+          email
+        });
+
+        await this.adminServices.fetchUpdateAdmin(updatedAdmin, id);
 
         res.status(201)
         res.send(`Admin succesfully updated.`)

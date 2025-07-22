@@ -1,11 +1,11 @@
 import { sanitizeInput } from "../utils/sanitize.js";
 import validator from 'validator';
 
-
+//todo REFATORAR. TOO MUCH REPEATED CODE 
 export function sanitizeClientData(client) {
   const errors = [];
 
-  // Sanitização individual
+  // Individual sanitizing
   const name = sanitizeInput(client.name);
   const date_of_birth = sanitizeInput(client.date_of_birth);
   const address = sanitizeInput(client.address);
@@ -19,7 +19,7 @@ export function sanitizeClientData(client) {
   const status = sanitizeInput(client.status);
   const fk_id_admin = sanitizeInput(client.fk_id_admin);
 
-  // Verificações
+  // Verifications
   if (!name) errors.push("Name is required.");
   if (!date_of_birth) errors.push("Date of birth is required.");
   if (!address) errors.push("Address is required.");
@@ -39,3 +39,70 @@ export function sanitizeClientData(client) {
 
   return { name, date_of_birth, address, complement, postal_code, city, phone, email, password, client_type, status, fk_id_admin };
 }
+
+// export function sanitizeClientData(client) {
+//   const errors = [];
+//   const requiredFields = [
+//     "name",
+//     "date_of_birth",
+//     "address",
+//     "postal_code",
+//     "city",
+//     "phone",
+//     "email",
+//     "password",
+//     "client_type"
+//   ];
+//   const optionalFields = ["complement", "status", "fk_id_admin"];
+//   const sanitized = {};
+
+//   [...requiredFields, ...optionalFields].forEach((field) => {
+//     const value = client[field] !== undefined ? String(client[field]) : "";
+//     sanitized[field] = sanitizeInput(value);
+
+//     if (requiredFields.includes(field) && !sanitized[field]) {
+//       errors[field] = `${formatFieldName(field)} is required.`;
+//     }
+
+//     // Specific validations
+//     if (sanitized.email && !validator.isEmail(sanitized.email)) {
+//       errors.email = "Invalid email format.";
+//     }
+
+//     if (Object.keys(errors).length > 0) {
+//       throw new Error(Object.values(errors).join(" "));
+//     }
+
+//     return sanitized;
+//   });
+// }
+
+export function sanitizeUpdatedClientData(client) {
+  const errors = [];
+  let inputs = ["name", "date_of_birth", "address", "complement", "postal_code", "city", "phone", "email", "client_type"]
+
+  const sanitized = {};
+
+  // Individual sanitizing
+  inputs.forEach((input) => {
+    const value = client[input];
+    if (value !== undefined && value !== null && value !== "") {
+      sanitized[input] = sanitizeInput(value);
+    }
+  });
+
+  // Verifications
+  if (sanitized.email !== "") {
+    if (!validator.isEmail(sanitized.email)) errors.push("Invalid email format.");
+
+  }
+
+  if (errors.length > 0) {
+    throw new Error(errors.join(" "));
+  }
+
+
+  return sanitized;
+}
+
+

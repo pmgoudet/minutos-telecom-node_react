@@ -8,15 +8,16 @@ import validator from 'validator';
 export function sanitizeAdminData(admin) {
   const errors = [];
 
-  // Sanitização individual
+  // Individual sanitizing
   const name = sanitizeInput(admin.name);
   const email = sanitizeInput(admin.email);
   const password = sanitizeInput(admin.password);
 
-  // Verificações
+  // Verifications
   if (!name) errors.push("Name is required.");
   if (!email) errors.push("Email is required.");
   if (!password) errors.push("Password is required.");
+
   if (!validator.isEmail(email)) errors.push("Invalid email format.");
 
   if (errors.length > 0) {
@@ -30,7 +31,7 @@ export function sanitizeUpdatedAdminData(admin) {
   const errors = [];
   let name, email, password;
 
-  // Sanitização individual
+  // Individual sanitizing
   if (admin.name) {
     name = sanitizeInput(admin.name);
   }

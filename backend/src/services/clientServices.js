@@ -1,4 +1,4 @@
-import { sanitizeClientData } from "../middlewares/sanitizeClients.js";
+import { sanitizeClientData, sanitizeUpdatedClientData } from "../middlewares/sanitizeClients.js";
 import ClientModel from "../models/clientModel.js";
 // import AdminModel from "../models/adminModel.js"; 
 import bcrypt from 'bcrypt';
@@ -71,10 +71,34 @@ export default class ClientServices {
   };
 
   async fetchUpdateClient(update, id) {
-    //todo CONTROLE DE TUDO
 
-    // this.ClientModel.queryUpdateClient(update, id)
+    const sanitizedUpdatedClient = sanitizeUpdatedClientData(update);
+
+    // verify existing email
+    const emailExists = await this.clientModel.queryClientByEmail(sanitizedUpdatedClient.email)
+    if (emailExists) {
+      throw new Error('Email already registered.');
+    }
+
+    // verify date
+    const birthDate = new Date(sanitizedUpdatedClient.date_of_birth);
+    const age = new Date().getFullYear() - birthDate.getFullYear();
+    if (isNaN(birthDate.getTime())) errors.push("Invalid date of birth.");
+    if (age < 18) errors.push("Client must be at least 18 years old.");
+
+    //verify postal code
+    if (!/^\d{5}$/.test(sanitizedUpdatedClient.postal_code)) errors.push("Invalid postal code.");
+
+    //verify client type
+    if (!['residential', 'corporate'].includes(sanitizedUpdatedClient.client_type)) errors.push("Invalid client type.");
+
+    this.clientModel.queryUpdateClient(sanitizedUpdatedClient, id);
   }
+
+
+
+
+
 
   //todo CRIAR AQUI UM DELETE PARA CONTROLAR A RESPOSTA QUE TEM QUE DAR O OBJETO DO ADMIN DELETADO
 }

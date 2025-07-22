@@ -41,11 +41,11 @@ export default class AdminModel {
 
   async queryUpdateAdmin(update, id) {
     const db = await connect();
-    const sql = (`UPDATE admins 
-    SET name = COALESCE(NULLIF(?, ''), name),
-    email = COALESCE(NULLIF(?, ''), email),
-    status = COALESCE(NULLIF(?, ''), status)
-  WHERE id_admin = ?`);
+    const sql = (`UPDATE admins SET
+      name = COALESCE(NULLIF(?, ''), name),
+      email = COALESCE(NULLIF(?, ''), email),
+      status = COALESCE(NULLIF(?, ''), status)
+    WHERE id_admin = ?`);
     const values = [update.name, update.email, update.status, id];
     await db.query(sql, values);
   }

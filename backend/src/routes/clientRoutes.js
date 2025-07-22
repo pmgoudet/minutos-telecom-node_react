@@ -10,7 +10,7 @@ router.get('/active', clientController.getActiveClients.bind(clientController));
 router.get('/inactive', clientController.getInactiveClients.bind(clientController));
 router.get('/:id', clientController.getClientById.bind(clientController));
 router.post('/', clientController.createClient.bind(clientController));
-// router.patch('/:id', clientController.updateClient.bind(clientController)); //todo -> JWT para validação do ID
+router.patch('/:id', clientController.updateClient.bind(clientController)); //todo -> JWT para validação do ID + talvez middlwares
 // router.delete('/:id', clientController.deleteClient.bind(clientController));
 
 

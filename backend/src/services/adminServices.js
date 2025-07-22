@@ -40,11 +40,11 @@ export default class AdminServices {
     const emailExists = await this.adminModel.queryAdminByEmail(sanitizedUpdatedAdmin.email)
     if (emailExists) {
       throw new Error('Email already registered.');
-    }
+    };
 
     //! falta controle de password
 
-    this.adminModel.queryUpdateAdmin(sanitizedUpdatedAdmin, id)
+    this.adminModel.queryUpdateAdmin(sanitizedUpdatedAdmin, id);
   }
 
   //todo CRIAR AQUI UM DELETE PARA CONTROLAR A RESPOSTA QUE TEM QUE DAR O OBJETO DO ADMIN DELETADO

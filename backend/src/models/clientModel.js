@@ -34,20 +34,41 @@ export default class ClientModel {
     return rows[0];
   };
 
+  async queryUpdateClient(update, id) {
+    const db = await connect();
+    const sql = (`UPDATE clients SET 
+      name = COALESCE(NULLIF(?, ''), name),
+      date_of_birth = COALESCE(NULLIF(?, ''), date_of_birth),
+      address = COALESCE(NULLIF(?, ''), address),
+      complement = COALESCE(NULLIF(?, ''), complement),
+      postal_code = COALESCE(NULLIF(?, ''), postal_code),
+      city = COALESCE(NULLIF(?, ''), city),
+      phone = COALESCE(NULLIF(?, ''), phone),
+      email = COALESCE(NULLIF(?, ''), email),
+      password = COALESCE(NULLIF(?, ''), password),
+      client_type = COALESCE(NULLIF(?, ''), client_type),
+      fk_id_admin = COALESCE(NULLIF(?, ''), fk_id_admin)
+    WHERE id_client = ?`);
+    const values = [
+      update.name || '',
+      update.date_of_birth || '',
+      update.address || '',
+      update.complement || '',
+      update.postal_code || '',
+      update.city || '',
+      update.phone || '',
+      update.email || '',
+      update.password || '',
+      update.client_type || '',
+      update.fk_id_admin || '',
+      id
+    ];
+    await db.query(sql, values);
+  }
+
   // async queryDeleteAdmin(id) {
   //   const db = await connect();
   //   await db.query(`UPDATE admins SET status = 'inactive' WHERE id_admin = ?`, [id]);
-  // }
-
-  // async queryUpdateAdmin(update, id) {
-  //   const db = await connect();
-  //   const sql = (`UPDATE admins 
-  //   SET name = COALESCE(NULLIF(?, ''), name),
-  //   email = COALESCE(NULLIF(?, ''), email),
-  //   status = COALESCE(NULLIF(?, ''), status)
-  // WHERE id_admin = ?`);
-  //   const values = [update.name, update.email, update.status, id];
-  //   await db.query(sql, values);
   // }
 
 }
