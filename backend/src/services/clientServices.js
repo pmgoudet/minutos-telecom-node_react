@@ -97,14 +97,18 @@ export default class ClientServices {
 
   async fetchDeleteClient() {
     this.clientModel.queryDeleteClient()
+
+    //todo CRIAR AQUI UM DELETE PARA CONTROLAR A RESPOSTA QUE TEM QUE DAR O OBJETO DO ADMIN DELETADO
+    //todo REGISTER EACH MODIFICATION AND THE ID OD THE ADMIN WHO'S DONE THAT
   };
 
   async fetchRestoreClient() {
     this.clientModel.queryRestoreClient()
+
+    //todo REGISTER EACH MODIFICATION AND THE ID OD THE ADMIN WHO'S DONE THAT
   };
 
 
 
 
-  //todo CRIAR AQUI UM DELETE PARA CONTROLAR A RESPOSTA QUE TEM QUE DAR O OBJETO DO ADMIN DELETADO
 };
