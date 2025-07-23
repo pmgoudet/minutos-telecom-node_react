@@ -66,9 +66,14 @@ export default class ClientModel {
     await db.query(sql, values);
   }
 
-  // async queryDeleteAdmin(id) {
-  //   const db = await connect();
-  //   await db.query(`UPDATE admins SET status = 'inactive' WHERE id_admin = ?`, [id]);
-  // }
+  async queryDeleteClient(id) {
+    const db = await connect();
+    await db.query(`UPDATE clients SET status = 'inactive' WHERE id_client = ?`, [id]);
+  }
+
+  async queryRestoreClient(id) {
+    const db = await connect();
+    await db.query(`UPDATE clients SET status = 'active' WHERE id_client = ?`, [id]);
+  }
 
 }

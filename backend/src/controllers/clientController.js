@@ -117,23 +117,48 @@ export default class ClientController {
     }
   }
 
-  // async deleteAdmin(req, res) {
-
-  //   try {
-  //     const id = req.params.id;
-
-  //     if (id && Number(id)) {
-  //       this.adminModel.queryDeleteAdmin(id);
-  //       res.status(201);
-  //       res.send(`The admin of ID:${id} has been disabled. ${json(this.adminModel)}`);
-  //     } else {
-  //       res.status(422)
-  //       res.send("Invalid ID.")
-  //     }
-
-  //   } catch (error) {
-  //     res.status(500)
-  //     res.send(error.message)
-  //   }
+  //todo UPDATE PASSWORD
+  // async updateClientPassword(req, res) { 
   // }
+
+
+  async deleteClient(req, res) {
+    try {
+      const id = req.params.id;
+
+      if (id && Number(id)) {
+        this.clientModel.queryDeleteClient(id);
+        res.status(201);
+        res.send(`The client of ID:${id} has been disabled.`);
+      } else {
+        0
+        res.status(422)
+        res.send("Invalid ID.")
+      }
+
+    } catch (error) {
+      res.status(500)
+      res.send(error.message)
+    }
+  }
+
+  async restoreClient(req, res) {
+    try {
+      const id = req.params.id;
+
+      if (id && Number(id)) {
+        this.clientModel.queryRestoreClient(id);
+        res.status(201);
+        res.send(`The client of ID:${id} has been restored.`);
+      } else {
+        0
+        res.status(422)
+        res.send("Invalid ID.")
+      }
+
+    } catch (error) {
+      res.status(500)
+      res.send(error.message)
+    }
+  }
 }

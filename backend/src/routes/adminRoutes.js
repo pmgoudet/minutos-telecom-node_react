@@ -11,6 +11,8 @@ router.get('/inactive', adminController.getInactiveAdmins.bind(adminController))
 router.get('/:id', adminController.getAdminById.bind(adminController));
 router.post('/', adminController.createAdmin.bind(adminController));
 router.patch('/:id', adminController.updateAdmin.bind(adminController)); //todo -> JWT para validação do ID
+// router.patch('/password/:id', adminController.updateAdminPassword.bind(adminController));
+router.patch('/restore/:id', adminController.restoreAdmin.bind(adminController));
 router.delete('/:id', adminController.deleteAdmin.bind(adminController));
 
 

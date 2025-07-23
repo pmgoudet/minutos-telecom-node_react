@@ -6,7 +6,7 @@ export default class AdminServices {
 
   constructor() {
     this.adminModel = new AdminModel();
-  }
+  };
 
   async fetchCreateAdmin(admin) {
 
@@ -45,7 +45,7 @@ export default class AdminServices {
     //! falta controle de password
 
     this.adminModel.queryUpdateAdmin(sanitizedUpdatedAdmin, id);
-  }
+  };
 
   //todo CRIAR AQUI UM DELETE PARA CONTROLAR A RESPOSTA QUE TEM QUE DAR O OBJETO DO ADMIN DELETADO
-}
+};

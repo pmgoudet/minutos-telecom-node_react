@@ -8,19 +8,19 @@ export default class ClientServices {
   constructor() {
     this.clientModel = new ClientModel();
     // this.adminModel = new AdminModel();
-  }
+  };
 
   async fetchActiveClients() {
     this.clientModel.queryActiveClients()
-  }
+  };
 
   async fetchInactiveClients() {
     this.clientModel.queryInactiveClients()
-  }
+  };
 
   async fetchClientById() {
     this.clientModel.queryClientById()
-  }
+  };
 
   async fetchCreateClient(client) {
 
@@ -93,12 +93,18 @@ export default class ClientServices {
     if (!['residential', 'corporate'].includes(sanitizedUpdatedClient.client_type)) errors.push("Invalid client type.");
 
     this.clientModel.queryUpdateClient(sanitizedUpdatedClient, id);
-  }
+  };
 
+  async fetchDeleteClient() {
+    this.clientModel.queryDeleteClient()
+  };
 
+  async fetchRestoreClient() {
+    this.clientModel.queryRestoreClient()
+  };
 
 
 
 
   //todo CRIAR AQUI UM DELETE PARA CONTROLAR A RESPOSTA QUE TEM QUE DAR O OBJETO DO ADMIN DELETADO
-}
+};

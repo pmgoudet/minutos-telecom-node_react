@@ -34,11 +34,6 @@ export default class AdminModel {
     return rows[0];
   };
 
-  async queryDeleteAdmin(id) {
-    const db = await connect();
-    await db.query(`UPDATE admins SET status = 'inactive' WHERE id_admin = ?`, [id]);
-  }
-
   async queryUpdateAdmin(update, id) {
     const db = await connect();
     const sql = (`UPDATE admins SET
@@ -50,4 +45,13 @@ export default class AdminModel {
     await db.query(sql, values);
   }
 
+  async queryDeleteAdmin(id) {
+    const db = await connect();
+    await db.query(`UPDATE admins SET status = 'inactive' WHERE id_admin = ?`, [id]);
+  }
+
+  async restoreAdmin(id) {
+    const db = await connect();
+    await db.query(`UPDATE admins SET status = 'active' WHERE id_admin = ?`, [id]);
+  }
 }

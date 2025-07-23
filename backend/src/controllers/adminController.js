@@ -98,6 +98,10 @@ export default class AdminController {
     }
   }
 
+  //todo UPDATE PASSWORD
+  // async updateAdminPassword(req, res) { 
+  // }
+
   async deleteAdmin(req, res) {
 
     try {
@@ -108,6 +112,27 @@ export default class AdminController {
         res.status(201);
         res.send(`The admin of ID:${id} has been disabled. ${json(this.adminModel)}`);
       } else {
+        res.status(422)
+        res.send("Invalid ID.")
+      }
+
+    } catch (error) {
+      res.status(500)
+      res.send(error.message)
+    }
+  }
+
+
+  async restoreAdmin(req, res) {
+    try {
+      const id = req.params.id;
+
+      if (id && Number(id)) {
+        this.adminModel.queryRestoreAdmin(id);
+        res.status(201);
+        res.send(`The admin of ID:${id} has been restored.`);
+      } else {
+        0
         res.status(422)
         res.send("Invalid ID.")
       }
