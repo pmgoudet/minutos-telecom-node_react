@@ -1,6 +1,7 @@
 import { sanitizeInput } from "../utils/sanitize.js";
 import validator from 'validator';
 
+//! Isso aqui é de fato um middleware ???
 //todo Esta função deveria ser dividida em dois middlewares:
 // 1  middlewares/sanitize.js
 // 2  middlewares/validate.js
