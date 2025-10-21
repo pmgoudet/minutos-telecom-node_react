@@ -1,0 +1,1 @@
+// definir chave secreta e tempo de expiração do token
