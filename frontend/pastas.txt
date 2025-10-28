@@ -22,27 +22,3 @@ src/
 │
 ├── App.jsx          # Componente raiz que renderiza as páginas
 └── main.jsx         # Ponto de entrada do Vite
-
-
-
-**********************************************************************************************************
-
-
-No vite.config.js, adiciona isso pra evitar caminhos longos tipo ../../../:
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import path from 'path'
-
-export default defineConfig({
-  plugins: [react()],
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-    },
-  },
-})
-
-
-Assim, você pode importar assim:
-
-import Header from '@/components/layout/Header'
