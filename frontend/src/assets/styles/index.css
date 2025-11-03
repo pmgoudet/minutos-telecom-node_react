@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
+  user-select: none;
+  font-family: 'Inter', sans-serif;
+}
+
+/* :root {
+  --cor-azul-bg: #124A9F;
+  --cor-azul-agua: #3BD8FF;
+  --cor-azul-claro-bg: #c5f4ff;
+  --cor-branco: white;
+  --cor-azul-marinho: #01255A;
+  --cor-azul-marinho-hover: #02122b;
+  --cor-whatsapp: #2AB640;
+  --cor-cinza: #6E6E6E;
+  --cor-preto: #000000;
+  --degrade-azul-claro: linear-gradient(0deg, rgba(255, 255, 255, 1) 100%, rgba(1, 212, 255, 0.2) 100%);
+  --shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+  --fonte-principal: 'Inter', sans-serif;
+} */
