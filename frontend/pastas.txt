@@ -1,0 +1,24 @@
+src/
+├── assets/          # Imagens, ícones, fontes, vídeos...
+│   ├── images/
+│   ├── icons/
+│   └── fonts/
+│
+├── components/      # Componentes reutilizáveis (Header, Footer, Button, Card, etc.)
+│   ├── ui/          # Pequenos componentes genéricos (botões, inputs, etc.)
+│   └── layout/      # Estrutura geral (Navbar, Footer, Sidebar, etc.)
+│
+├── pages/           # Cada página do site (Home, Sobre, Contato, etc.)
+│   ├── Home.jsx
+│   ├── Sobre.jsx
+│   └── Contato.jsx
+│
+├── hooks/           # (opcional) Custom hooks para lógica reutilizável
+│   └── useScroll.js
+│
+├── styles/          # (opcional) CSS global, variáveis, resets ou Tailwind config extra
+│   ├── global.css
+│   └── variables.css
+│
+├── App.jsx          # Componente raiz que renderiza as páginas
+└── main.jsx         # Ponto de entrada do Vite
