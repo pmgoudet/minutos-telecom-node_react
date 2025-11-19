@@ -5,8 +5,6 @@ import { useState } from "react";
 function NavBarBtn() {
   const [drop, setDrop] = useState(false);
 
-  //! TRAVEI NO ONCLICK ONMOUSE ENTER PARA TABLET, TEM QUE CRIAR UMA CONSTANTE COM O INNERWIDTH PRA COMPARAR
-
   return (
     <div className="relative" onMouseLeave={() => setDrop(false)}>
       <button

@@ -26,6 +26,15 @@ export default {
       backgroundImage: {
         'degrade-azul-claro': 'linear-gradient(0deg, rgba(255, 255, 255, 1) 100%, rgba(1, 212, 255, 0.2) 100%)',
       },
+      screens: {
+        xs: "480px",
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
+        "2xl": "1536px",
+        ultra: "1800px",
+      },
     },
   },
   plugins: [],

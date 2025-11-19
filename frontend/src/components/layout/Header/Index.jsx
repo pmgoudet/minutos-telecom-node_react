@@ -3,9 +3,9 @@ import NavBar from "../NavBar";
 const Header = () => {
   return (
     <header className="bg-azulBg">
-      <div className="container mx-auto flex-row items-center py-4 px-6">
+      <div className="container mx-auto flex-row items-center py-4 px-6 md:p-0 lg:flex lg:w-full">
         {/* Logo */}
-        <div className="">
+        <div className="lg:w-[40%]">
           <a href="/">
             <img
               src="/logo/logotipo-fundo-escuro-minutos-telecom.svg"
