@@ -24,13 +24,3 @@ export default function useWindowDimensions() {
 
   return windowDimensions;
 }
-
-// export default function GetInnerWidth () {
-//   const { height, width } = useWindowDimensions();
-
-//   return (
-//     <div>
-//       width: {width} ~ height: {height}
-//     </div>
-//   );
-// }

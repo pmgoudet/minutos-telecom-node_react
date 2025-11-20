@@ -30,7 +30,7 @@ export const navBarPaths = [
     color: "secundaria",
   },
   {
-    title: "Speed Teste",
+    title: "SpeedTest",
     path: "/speedtest",
     color: "secundaria",
   },

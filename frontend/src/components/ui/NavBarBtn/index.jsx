@@ -8,7 +8,7 @@ function NavBarBtn() {
   return (
     <div className="relative" onMouseLeave={() => setDrop(false)}>
       <button
-        className={`flex gap-2 items-center bg-azulBg p-4 px-8 ${
+        className={`flex gap-2 items-center bg-azulBg py-3 px-5 ${
           drop ? "rounded-t-md" : "rounded-md"
         }`}
         onMouseEnter={() => setDrop(!drop)}
@@ -24,10 +24,10 @@ function NavBarBtn() {
 
       {/* Dropdown */}
       <nav
-        className={`absolute left-0 p-2 
-          x-7 bg-azulBg shadow-md overflow-hidden transition-all duration-300 ease-in-out ${
+        className={`absolute z-50 left-0 p-2 
+          bg-azulBg shadow-md overflow-hidden transition-all duration-300 ease-in-out  ${
             drop
-              ? "max-h-60 opacity-100 visible rounded-b-md"
+              ? "max-h-70 opacity-100 visible rounded-b-md overflow-visible"
               : "max-h-0 opacity-0 invisible rounded-md "
           }`}
       >
@@ -37,7 +37,7 @@ function NavBarBtn() {
             <a
               key={path.title}
               href="#"
-              className="block px-4 py-2 text-white font-bold hover:text-azulAgua "
+              className="block px-4 py-2 text-white font-bold hover:text-azulAgua duration-300"
             >
               {path.title}
             </a>
