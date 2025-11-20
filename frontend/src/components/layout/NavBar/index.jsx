@@ -7,7 +7,7 @@ import useWindowDimensions from "../../../hooks/InnerWidth/index.jsx";
 function NavBar() {
   const [openBurgerMenu, setOpenBurgerMenu] = useState(false);
   const { width } = useWindowDimensions();
-  const isMobile = width < 768;
+  const isMobile = width < 768; //!tem que trocar aqui pro hook de device
 
   useEffect(() => {
     !isMobile ? setOpenBurgerMenu(true) : setOpenBurgerMenu(false);

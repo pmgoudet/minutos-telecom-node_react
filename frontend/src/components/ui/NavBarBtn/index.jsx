@@ -14,7 +14,7 @@ function NavBarBtn() {
         onMouseEnter={() => setDrop(!drop)}
         onClick={() => setDrop(!drop)}
       >
-        <p className="text-xl font-bold text-white">Cliente</p>
+        <p className="text-xl text-white">Cliente</p>
         <TiArrowSortedDown
           className={`text-white text-2xl transition-transform duration-300 ${
             drop ? "rotate-180" : "rotate-0"
@@ -37,7 +37,7 @@ function NavBarBtn() {
             <a
               key={path.title}
               href="#"
-              className="block px-4 py-2 text-white font-bold hover:text-azulAgua duration-300"
+              className="block px-4 py-2 text-white hover:text-azulAgua duration-300"
             >
               {path.title}
             </a>
