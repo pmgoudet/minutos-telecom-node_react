@@ -2,15 +2,14 @@ import Hamburger from "hamburger-react";
 import NavBarBtn from "../../ui/NavBarBtn/index.jsx";
 import { navBarPaths } from "../../../data/NavBarPaths.jsx";
 import { useEffect, useState } from "react";
-import useWindowDimensions from "../../../hooks/InnerWidth/index.jsx";
+import useResponsivity from "../../../hooks/useResponsivity.jsx";
 
 function NavBar() {
   const [openBurgerMenu, setOpenBurgerMenu] = useState(false);
-  const { width } = useWindowDimensions();
-  const isMobile = width < 768; //!tem que trocar aqui pro hook de device
+  const { isMobile, width } = useResponsivity();
 
   useEffect(() => {
-    !isMobile ? setOpenBurgerMenu(true) : setOpenBurgerMenu(false);
+    setOpenBurgerMenu(!isMobile);
   }, [isMobile]);
 
   return (
@@ -27,13 +26,13 @@ function NavBar() {
       )}
       <div
         className={`
-        w-full bg-azulMarinho rounded-md md:bg-black/80 md:rounded-none lg:h-[152px] lg:pt-12
+        w-full bg-azulMarinho rounded-md md:bg-black/80 md:rounded-none md:relative md:z-40 lg:h-[152px] lg:pt-12
         transition-all duration-500 ease-in-out md:px-12
         overflow-visible
         ${openBurgerMenu ? "max-h-96 opacity-100 p-4" : "max-h-0 opacity-0 p-0"}
       `}
       >
-        <nav className="flex flex-col md:flex-row items-center md:justify-between md:px-10 lg:p-0 lg:pr-[12%]">
+        <nav className="flex flex-col md:flex-row items-center md:justify-between md:px-10 lg:p-0 lg:pr-[12%] md:relative md:z-50">
           {navBarPaths.map((page, index) =>
             page.color === "primaria" ? (
               <a
