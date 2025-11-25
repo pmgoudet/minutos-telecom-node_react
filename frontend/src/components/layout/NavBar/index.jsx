@@ -24,6 +24,8 @@ function NavBar() {
           label="menu"
         />
       )}
+
+      {/* Navigation Bar */}
       <div
         className={`
         w-full bg-azulMarinho rounded-md md:bg-black/80 md:rounded-none md:relative md:z-40 lg:h-[152px] lg:pt-12
