@@ -35,24 +35,28 @@ function Hero() {
 
       {/* Hero section text */}
       <div className="bg-azulBg border-0 px-6 py-10 lg:h-[calc(100vh-152px)] lg:order-1 lg:w-[45vw] text-white">
-        <div className="flex items-baseline gap-3">
-          <h3 className="text-sm font-light">DESCUBRA NOVAS POSSIBILIDADES</h3>
-          <img
-            src={antenaIcon}
-            alt="Ícone de antena de internet Minutos Telecom"
-            className="w-5"
-          />
+        <div className="md:mx-14 lg:ml-0 lg:mr-10 lg:my-12 lg:pl-[20%] xl:mt-6 2xl:mt-20 ultra:mt-32 ultra:mr-32">
+          <div className="flex items-baseline gap-3">
+            <h3 className="text-sm font-light ultra:text-lg">
+              DESCUBRA NOVAS POSSIBILIDADES
+            </h3>
+            <img
+              src={antenaIcon}
+              alt="Ícone de antena de internet Minutos Telecom"
+              className="w-5 md:ml-[-280px] ultra:ml-[-350px]"
+            />
+          </div>
+          <h1 className="text-2xl my-4 xl:text-4xl xl:my-8 ultra:text-5xl ultra:leading-snug">
+            Projetos Referência em{" "}
+            <strong className="text-azulAgua">Internet Empresarial</strong>
+          </h1>
+          <p className="font-light mb-2 xl:text-lg xl:leading-8 xl:mb-6 ultra:text-2xl ultra:leading-10">
+            Obtenha alto desempenho para sua empresa com qualidade e suporte
+            técnico rápido. Conheça nossos projetos de internet empresarial de
+            excelência com preço justo.
+          </p>
+          <StandardButton>Saiba Mais!</StandardButton>
         </div>
-        <h1 className="text-2xl my-4">
-          Projetos Referência em{" "}
-          <strong className="text-azulAgua">Internet Empresarial</strong>
-        </h1>
-        <p className="font-light">
-          Obtenha alto desempenho para sua empresa com qualidade e suporte
-          técnico rápido. Conheça nossos projetos de internet empresarial de
-          excelência com preço justo.
-        </p>
-        <StandardButton>Saiba Mais!</StandardButton>
       </div>
     </div>
   );

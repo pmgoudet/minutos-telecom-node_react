@@ -10,7 +10,8 @@ function StandardButton({
     whatsApp: "bg-whatsApp",
   };
 
-  const base = "my-4 p-3 rounded-md duration-200 hover:bg-azulMarinhoHover";
+  const base =
+    "mt-4 p-3 rounded-md duration-200 hover:bg-azulMarinhoHover lg:px-7 lg:py-5 xl:text-lg ultra:py-8 ultra:px-12 ultra:text-2xl";
 
   return (
     <button
