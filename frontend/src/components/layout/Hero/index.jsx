@@ -2,7 +2,7 @@ import useResponsivity from "../../../hooks/useResponsivity";
 import imgMobile from "../../../assets/img/mobile/home-mobile-minutos-telecom.webp";
 import imgTablet from "../../../assets/img/tablet/home-tablet-minutos-telecom.webp";
 import imgDesk from "../../../assets/img/desktop/home-desktop-minutos-telecom.webp";
-import antenaIcon from "../../../assets/img/icons/icon-antena-minutos-telecom.svg";
+import antenaIcon from "../../../assets/icons/icon-antena-minutos-telecom.svg";
 import StandardButton from "../../ui/StandardBtn";
 
 function Hero() {

@@ -1,0 +1,24 @@
+import { socialMediaPaths } from "../../../data/SocialMediaPaths";
+
+function SocialMedia() {
+  return (
+    <div className="text-cinza flex justify-around p-4">
+      {socialMediaPaths.map((socialMedia, index) => (
+        <a
+          href={socialMedia.path}
+          key={index}
+          className="flex gap-1 items-center"
+        >
+          <img
+            className="w-4 h-4"
+            src={socialMedia.icon}
+            alt={socialMedia.title}
+          />
+          <p className="text-sm">{socialMedia.title}</p>
+        </a>
+      ))}
+    </div>
+  );
+}
+
+export default SocialMedia;
