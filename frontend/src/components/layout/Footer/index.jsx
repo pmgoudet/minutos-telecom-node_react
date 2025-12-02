@@ -1,10 +1,11 @@
 import SocialMedia from "./SocialMedia.jsx";
+import MainRow from "./MainRow.jsx";
 
 function Footer() {
   return (
     <footer>
       <SocialMedia />
-      <p>aeeeeeeeeeeeeeeeeeeeeeeeeee</p>
+      <MainRow />
     </footer>
   );
 }

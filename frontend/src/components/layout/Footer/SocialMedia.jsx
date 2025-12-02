@@ -2,12 +2,12 @@ import { socialMediaPaths } from "../../../data/SocialMediaPaths";
 
 function SocialMedia() {
   return (
-    <div className="text-cinza flex justify-around p-4">
+    <div className="text-cinza flex justify-around p-4 md:mx-20 lg:mx-60 ultra:mx-96">
       {socialMediaPaths.map((socialMedia, index) => (
         <a
           href={socialMedia.path}
           key={index}
-          className="flex gap-1 items-center"
+          className="flex gap-1 items-center "
         >
           <img
             className="w-4 h-4"
