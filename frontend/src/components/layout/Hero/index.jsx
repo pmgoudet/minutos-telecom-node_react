@@ -55,7 +55,9 @@ function Hero() {
             técnico rápido. Conheça nossos projetos de internet empresarial de
             excelência com preço justo.
           </p>
-          <StandardButton>Saiba Mais!</StandardButton>
+          <div className="mt-4">
+            <StandardButton>Saiba Mais!</StandardButton>
+          </div>
         </div>
       </div>
     </div>

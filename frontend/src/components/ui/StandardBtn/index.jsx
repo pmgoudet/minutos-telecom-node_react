@@ -5,13 +5,14 @@ function StandardButton({
   disabled = false,
 }) {
   const variants = {
-    marinho: "bg-azulMarinho",
+    marinho: "bg-azulMarinho hover:bg-azulMarinhoHover",
     azulAgua: "bg-azulAgua",
-    whatsApp: "bg-whatsApp",
+    whatsApp:
+      "bg-whatsapp font-bold hover:bg-whatsappHover text-[4vw] md:text-lg ultra:py-4 ultra:px-6 ultra:text-xl",
   };
 
   const base =
-    "mt-4 p-3 rounded-md duration-200 hover:bg-azulMarinhoHover lg:px-7 lg:py-5 xl:text-lg ultra:py-8 ultra:px-12 ultra:text-2xl";
+    "p-3 rounded-md duration-200 lg:px-7 lg:py-5 xl:text-lg ultra:py-8 ultra:px-12 ultra:text-2xl";
 
   return (
     <button

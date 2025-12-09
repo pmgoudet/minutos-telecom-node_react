@@ -40,6 +40,7 @@ export const contactInfos = [
   {
     icon: enderecoIcon,
     contact: "Av. Marechal Rondon, 700 – Sala 310\nCampinas/SP – Brasil",
-    path: "/",
+    path: "https://www.google.com/maps?ll=-22.893487,-47.088336&z=15&t=m&hl=fr&gl=FR&mapclient=embed&q=R.+Mal.+Rondon,+700+-+Jardim+Chapad%C3%A3o+Campinas+-+SP+13070-173+Br%C3%A9sil",
+    target: "target='_blank'",
   },
 ];

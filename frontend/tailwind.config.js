@@ -14,6 +14,7 @@ export default {
         azulMarinho: '#01255A',
         azulMarinhoHover: '#02122b',
         whatsapp: '#2AB640',
+        whatsappHover: '#158025',
         cinza: '#6E6E6E',
         preto: '#000000',
       },
