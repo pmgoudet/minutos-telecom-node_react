@@ -8,7 +8,7 @@ function StandardButton({
     marinho: "bg-azulMarinho hover:bg-azulMarinhoHover",
     azulAgua: "bg-azulAgua",
     whatsApp:
-      "bg-whatsapp font-bold hover:bg-whatsappHover text-[4vw] md:text-lg ultra:py-4 ultra:px-6 ultra:text-xl",
+      "bg-whatsapp font-bold hover:bg-whatsappHover text-[4vw] md:text-lg ultra:py-3 ultra:px-6 ultra:text-xl",
   };
 
   const base =

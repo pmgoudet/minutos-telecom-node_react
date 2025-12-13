@@ -3,6 +3,13 @@ import whatsAppIcon from "../../../assets/icons/whatsapp-icon-minutos-telecom.pn
 import StandardButton from "../../ui/StandardBtn";
 
 function MainRow() {
+  const handleClick = () => {
+    window.open(
+      "https://api.whatsapp.com/send?phone=551930810000&text=Ol%C3%A1,%20Minutos!",
+      "_blank"
+    );
+  };
+
   return (
     <div className="bg-azulBg p-6 text-white md:px-10 lg:px-32 lg:py-10 ultra:px-64 ultra:py-16">
       <h4 className="font-bold text-xl mb-6">Fale Conosco</h4>
@@ -51,7 +58,9 @@ function MainRow() {
               Nosso suporte é dado via WhatsApp com maior agilidade e sem robôs.
             </p>
           </div>
-          <StandardButton variant="whatsApp">(19) 3081-0000</StandardButton>
+          <StandardButton onClick={handleClick} variant="whatsApp">
+            (19) 3081-0000
+          </StandardButton>
         </div>
       </div>
     </div>
