@@ -1,10 +1,10 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./assets/styles/index.css";
-import Home from "./pages/home/Index";
+import App from "./routes";
+import "./assets/styles/Index.css"; // Tailwind aqui
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Home />
+    <App />
   </StrictMode>
 );

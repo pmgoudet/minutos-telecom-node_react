@@ -31,7 +31,8 @@ export const navBarPaths = [
   },
   {
     title: "SpeedTest",
-    path: "/speedtest",
+    path: "https://fast.com/fr/",
+    target: "_blank",
     color: "secundaria",
   },
   {
@@ -41,7 +42,8 @@ export const navBarPaths = [
   },
   {
     title: "Suporte",
-    path: "/suporte",
+    path: "https://api.whatsapp.com/send?phone=551930810000&text=Ol%C3%A1,%20Minutos!",
+    target: "_blank",
     color: "secundaria",
   },
 ];

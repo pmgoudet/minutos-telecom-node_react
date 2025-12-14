@@ -34,11 +34,11 @@ function NavBar() {
         ${openBurgerMenu ? "max-h-96 opacity-100 p-4" : "max-h-0 opacity-0 p-0"}
       `}
       >
-        <nav className="flex flex-col md:flex-row items-center md:justify-between md:px-10 lg:p-0 lg:pr-[12%] md:relative md:z-50">
+        <nav className="flex flex-col md:flex-row items-center md:justify-between md:px-10 lg:p-0 lg:pr-[12%] md:relative md:z-50 ">
           {navBarPaths.map((page, index) =>
             page.color === "primaria" ? (
               <a
-                href="#"
+                href={page.path}
                 className="text-lg p-1 text-center text-white hover:text-azulAgua duration-300"
                 key={index}
               >
@@ -46,7 +46,11 @@ function NavBar() {
               </a>
             ) : page.color === "secundaria" && width < 640 ? (
               <a
-                href="#"
+                href={page.path}
+                target={page.target ? page.target : "_self"}
+                rel={
+                  page.target === "_blank" ? "noopener noreferrer" : undefined
+                }
                 className="font-semibold text-lg p-1 text-center text-azulAgua"
                 key={index}
               >
