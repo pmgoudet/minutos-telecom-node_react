@@ -4,6 +4,9 @@ import Home from "../pages/home";
 import Residencial from "../pages/residencial";
 import Corporativo from "../pages/corporativo";
 import Contato from "../pages/contato";
+import AreaDoCliente from "../pages/area-do-cliente";
+import Contratos from "../pages/contratos";
+import SoftPhone from "../pages/softphone";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +24,18 @@ const router = createBrowserRouter([
   {
     path: "/contato",
     element: <Contato />,
+  },
+  {
+    path: "/area-do-cliente",
+    element: <AreaDoCliente />,
+  },
+  {
+    path: "/contratos",
+    element: <Contratos />,
+  },
+  {
+    path: "/softphone",
+    element: <SoftPhone />,
   },
 ]);
 

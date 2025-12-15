@@ -2,6 +2,7 @@ import Hamburger from "hamburger-react";
 import NavBarBtn from "../../ui/NavBarBtn/index.jsx";
 import { navBarPaths } from "../../../data/NavBarPaths.jsx";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import useResponsivity from "../../../hooks/useResponsivity.jsx";
 
 function NavBar() {
@@ -35,26 +36,27 @@ function NavBar() {
       `}
       >
         <nav className="flex flex-col md:flex-row items-center md:justify-between md:px-10 lg:p-0 lg:pr-[12%] md:relative md:z-50 ">
-          {navBarPaths.map((page, index) =>
-            page.color === "primaria" ? (
+          {navBarPaths.map((path, index) =>
+            path.color === "primaria" ? (
               <a
-                href={page.path}
+                href={path.path}
                 className="text-lg p-1 text-center text-white hover:text-azulAgua duration-300"
                 key={index}
               >
-                {page.title}
+                {path.title}
               </a>
-            ) : page.color === "secundaria" && width < 640 ? (
+            ) : // This secondary menu works only for mobile. Search NavBarBtn for others.
+            path.color === "secundaria" && width < 640 ? (
               <a
-                href={page.path}
-                target={page.target ? page.target : "_self"}
+                href={path.path}
+                target={path.target ? path.target : "_self"}
                 rel={
-                  page.target === "_blank" ? "noopener noreferrer" : undefined
+                  path.target === "_blank" ? "noopener noreferrer" : undefined
                 }
                 className="font-semibold text-lg p-1 text-center text-azulAgua"
                 key={index}
               >
-                {page.title}
+                {path.title}
               </a>
             ) : null
           )}

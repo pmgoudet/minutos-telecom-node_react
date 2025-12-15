@@ -21,7 +21,8 @@ export const navBarPaths = [
   },
   {
     title: "Área do Cliente",
-    path: "/cliente",
+    path: "https://minutostelecom.portalinternet.com.br/radiusnet/cda/login.php",
+    target: "_blank",
     color: "secundaria",
   },
   {
