@@ -1,10 +1,11 @@
 import { TiArrowSortedDown } from "react-icons/ti";
 import { navBarPaths } from "../../../data/NavBarPaths.jsx";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function NavBarBtn() {
   const [drop, setDrop] = useState(false);
+  const location = useLocation();
 
   return (
     <div className="relative" onMouseLeave={() => setDrop(false)}>
@@ -15,7 +16,16 @@ function NavBarBtn() {
         onMouseEnter={() => setDrop(true)}
         onClick={() => setDrop(!drop)}
       >
-        <p className="text-xl text-white">Cliente</p>
+        <p
+          className={`text-xl ${
+            location.pathname === "/contratos" ||
+            location.pathname === "/softphone"
+              ? "text-azulAgua font-semibold"
+              : " text-white"
+          }`}
+        >
+          Cliente
+        </p>
         <TiArrowSortedDown
           className={`text-white text-2xl transition-transform ${
             drop ? "rotate-180" : ""

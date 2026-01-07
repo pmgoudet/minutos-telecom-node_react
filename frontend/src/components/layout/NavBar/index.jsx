@@ -2,20 +2,17 @@ import Hamburger from "hamburger-react";
 import NavBarBtn from "../../ui/NavBarBtn/index.jsx";
 import { navBarPaths } from "../../../data/NavBarPaths.jsx";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import useResponsivity from "../../../hooks/useResponsivity.jsx";
 
 function NavBar() {
   const [openBurgerMenu, setOpenBurgerMenu] = useState(false);
   const { isMobile, width } = useResponsivity();
+  const location = useLocation(); //to find the URL path
 
   useEffect(() => {
     setOpenBurgerMenu(!isMobile);
   }, [isMobile]);
-
-  useEffect(() => {
-    console.log("Página montada");
-  }, []);
 
   return (
     <div className="p-0 justify-items-center lg:w-[55vw]">
@@ -42,36 +39,41 @@ function NavBar() {
         <nav className="flex flex-col md:flex-row items-center md:justify-between md:px-10 lg:p-0 lg:pr-[12%] md:relative md:z-50 ">
           {navBarPaths.map((path, index) =>
             path.color === "primaria" ? (
-              <a
-                href={path.path}
-                className="text-lg p-1 text-center text-white hover:text-azulAgua duration-300"
-                key={index}
-              >
-                {path.title}
-              </a>
+              path.path === location.pathname ? (
+                <Link
+                  key={index}
+                  to={path.path}
+                  className="text-lg p-1 text-center font-semibold text-azulAgua hover:text-white duration-300"
+                >
+                  {path.title}
+                </Link>
+              ) : (
+                <Link
+                  key={index}
+                  to={path.path}
+                  className="text-lg p-1 text-center text-white hover:text-azulAgua duration-300"
+                >
+                  {path.title}
+                </Link>
+              )
             ) : // This secondary menu works only for mobile. Search NavBarBtn for other devices.
             path.color === "secundaria" && width < 640 ? (
-              !path.path ? (
+              !path.target ? (
                 <Link
-                  href={path.path}
-                  target={path.target ? path.target : "_self"}
-                  rel={
-                    path.target === "_blank" ? "noopener noreferrer" : undefined
-                  }
-                  className="font-semibold text-lg p-1 text-center text-azulAgua"
                   key={index}
+                  to={path.path}
+                  target={"_self"}
+                  className="font-semibold text-lg p-1 text-center text-azulAgua"
                 >
                   {path.title}
                 </Link>
               ) : (
                 <a
-                  href={path.path}
-                  target={path.target ? path.target : "_self"}
-                  rel={
-                    path.target === "_blank" ? "noopener noreferrer" : undefined
-                  }
-                  className="font-semibold text-lg p-1 text-center text-azulAgua"
                   key={index}
+                  href={path.path}
+                  target={path.target}
+                  rel="noopener noreferrer"
+                  className="font-semibold text-lg p-1 text-center text-azulAgua"
                 >
                   {path.title}
                 </a>
@@ -86,31 +88,3 @@ function NavBar() {
 }
 
 export default NavBar;
-
-// {
-//   navBarPaths.map((path, index) =>
-//     path.color === "primaria" ? (
-//       <a
-//         href={path.path}
-//         className="text-lg p-1 text-center text-white hover:text-azulAgua duration-300"
-//         key={index}
-//       >
-//         {path.title}
-//       </a>
-//     ) : // This secondary menu works only for mobile. Search NavBarBtn for other devices.
-//     path.color === "secundaria" && width < 640 ? (
-//       <a
-//         href={path.path}
-//         target={path.target ? path.target : "_self"}
-//         rel={path.target === "_blank" ? "noopener noreferrer" : undefined}
-//         className="font-semibold text-lg p-1 text-center text-azulAgua"
-//         key={index}
-//       >
-//         {path.title}
-//       </a>
-//     ) : null
-//   );
-// }
-// {
-//   !isMobile && <NavBarBtn />;
-// }
