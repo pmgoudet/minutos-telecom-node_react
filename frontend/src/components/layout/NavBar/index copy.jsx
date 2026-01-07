@@ -13,10 +13,6 @@ function NavBar() {
     setOpenBurgerMenu(!isMobile);
   }, [isMobile]);
 
-  useEffect(() => {
-    console.log("Página montada");
-  }, []);
-
   return (
     <div className="p-0 justify-items-center lg:w-[55vw]">
       {/* Burger Menu - Mobile */}
@@ -51,31 +47,17 @@ function NavBar() {
               </a>
             ) : // This secondary menu works only for mobile. Search NavBarBtn for other devices.
             path.color === "secundaria" && width < 640 ? (
-              !path.path ? (
-                <Link
-                  href={path.path}
-                  target={path.target ? path.target : "_self"}
-                  rel={
-                    path.target === "_blank" ? "noopener noreferrer" : undefined
-                  }
-                  className="font-semibold text-lg p-1 text-center text-azulAgua"
-                  key={index}
-                >
-                  {path.title}
-                </Link>
-              ) : (
-                <a
-                  href={path.path}
-                  target={path.target ? path.target : "_self"}
-                  rel={
-                    path.target === "_blank" ? "noopener noreferrer" : undefined
-                  }
-                  className="font-semibold text-lg p-1 text-center text-azulAgua"
-                  key={index}
-                >
-                  {path.title}
-                </a>
-              )
+              <a
+                href={path.path}
+                target={path.target ? path.target : "_self"}
+                rel={
+                  path.target === "_blank" ? "noopener noreferrer" : undefined
+                }
+                className="font-semibold text-lg p-1 text-center text-azulAgua"
+                key={index}
+              >
+                {path.title}
+              </a>
             ) : null
           )}
           {!isMobile && <NavBarBtn />}
@@ -86,31 +68,3 @@ function NavBar() {
 }
 
 export default NavBar;
-
-// {
-//   navBarPaths.map((path, index) =>
-//     path.color === "primaria" ? (
-//       <a
-//         href={path.path}
-//         className="text-lg p-1 text-center text-white hover:text-azulAgua duration-300"
-//         key={index}
-//       >
-//         {path.title}
-//       </a>
-//     ) : // This secondary menu works only for mobile. Search NavBarBtn for other devices.
-//     path.color === "secundaria" && width < 640 ? (
-//       <a
-//         href={path.path}
-//         target={path.target ? path.target : "_self"}
-//         rel={path.target === "_blank" ? "noopener noreferrer" : undefined}
-//         className="font-semibold text-lg p-1 text-center text-azulAgua"
-//         key={index}
-//       >
-//         {path.title}
-//       </a>
-//     ) : null
-//   );
-// }
-// {
-//   !isMobile && <NavBarBtn />;
-// }

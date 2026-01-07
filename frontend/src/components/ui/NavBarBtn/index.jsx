@@ -28,6 +28,7 @@ function NavBarBtn() {
           ${drop ? "opacity-100 visible rounded-b-md" : "opacity-0 invisible"}
         `}
       >
+        {/* This menu in not for mobile. Search NavBar for mobile. */}
         {navBarPaths
           .filter((path) => path.color === "secundaria")
           .map((path) => {
@@ -97,7 +98,7 @@ export default NavBarBtn;
 //               : "max-h-0 opacity-0 invisible rounded-md "
 //           }`}
 //       >
-//         {/* This menu in not for mobile. Search NavBar for others. */}
+//         {/* This menu in not for mobile. Search NavBar for mobile. */}
 //         {navBarPaths
 //           .filter((path) => path.color === "secundaria")
 //           .map((path) => (
