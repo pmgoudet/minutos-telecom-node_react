@@ -6,7 +6,6 @@ import {
 import Fab from "@mui/material/Fab";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-
 import { carouselImages } from "../../../data/Carousel";
 import useResponsivity from "../../../hooks/useResponsivity";
 
@@ -18,6 +17,8 @@ export const Card = React.memo(function ({ data, dataIndex }) {
   const startPos = React.useRef({ x: 0, y: 0 });
   const moved = React.useRef(false);
   const { isMobile, isTablet, isDesk } = useResponsivity();
+
+  //todo const opacityClass = distanceFromCenter === 0 ? "opacity-100" : "opacity-40"; ---> precisa escrever distanceFromCenter como parâmetro da função e depois usar `${opacityClass}` na linha       className="w-full h-[350px] sm:h-[380px] md:h-[450px] lg:h-[70vh] select-none lg:p-10"
 
   const handleStart = (x, y) => {
     moved.current = false;
@@ -39,7 +40,7 @@ export const Card = React.memo(function ({ data, dataIndex }) {
 
   return (
     <div
-      className="w-full h-[350px] sm:h-[380px] md:h-[450px] lg:h-[520px] select-none"
+      className="w-full h-[350px] sm:h-[380px] md:h-[450px] lg:h-[70vh] select-none lg:p-10"
       onMouseDown={(e) => handleStart(e.clientX, e.clientY)}
       onMouseMove={(e) => handleMove(e.clientX, e.clientY)}
       onTouchStart={(e) => {
@@ -77,6 +78,7 @@ export const Card = React.memo(function ({ data, dataIndex }) {
 export default function ResponsiveCarousel() {
   const ref = React.useRef(null);
   const intervalRef = React.useRef(null);
+  const { isDesk } = useResponsivity();
 
   const startAutoPlay = () => {
     if (intervalRef.current) return;
@@ -100,7 +102,7 @@ export default function ResponsiveCarousel() {
 
   return (
     <div
-      className="relative w-full"
+      className="relative w-full "
       onMouseEnter={stopAutoPlay}
       onMouseLeave={startAutoPlay}
     >
@@ -108,8 +110,7 @@ export default function ResponsiveCarousel() {
         carouselRef={ref}
         render={(parentWidth, carouselRef) => {
           let currentVisibleSlide = 5;
-          // if (parentWidth <= 1040) currentVisibleSlide = 3;
-          if (parentWidth <= 768) currentVisibleSlide = 1;
+          if (parentWidth <= 768 && !isDesk) currentVisibleSlide = 1;
 
           return (
             <StackedCarousel
