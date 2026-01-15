@@ -40,7 +40,7 @@ export const Card = React.memo(function ({ data, dataIndex }) {
 
   return (
     <div
-      className="w-full h-[350px] sm:h-[380px] md:h-[450px] lg:h-[70vh] select-none lg:p-10"
+      className="w-full h-[40vh] min-h-[350px] sm:h-[380px] md:h-[450px] lg:h-[75vh] ultra:h-[85vh] select-none lg:p-10"
       onMouseDown={(e) => handleStart(e.clientX, e.clientY)}
       onMouseMove={(e) => handleMove(e.clientX, e.clientY)}
       onTouchStart={(e) => {
