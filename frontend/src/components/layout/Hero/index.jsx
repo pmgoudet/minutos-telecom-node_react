@@ -69,5 +69,3 @@ function Hero() {
 }
 
 export default Hero;
-
-// 40px 30px 50px 30px

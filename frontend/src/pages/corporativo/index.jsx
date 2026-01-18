@@ -1,12 +1,12 @@
 import Header from "../../components/layout/Header/Index";
-import Hero from "../../components/layout/Hero";
+import AltHero from "../../components/layout/Hero/AltHero.jsx";
 import Footer from "../../components/layout/Footer";
 
 function Corporativo() {
   return (
     <div>
       <Header />
-      <Hero />
+      <AltHero />
       <h1>CORPORATIVO</h1>
       <Footer />
     </div>
