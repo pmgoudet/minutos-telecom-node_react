@@ -1,8 +1,10 @@
 import ResponsiveCarousel from "../../ui/Carousel";
 import StandardButton from "../../ui/StandardBtn";
 import useResponsivity from "../../../hooks/useResponsivity";
+import { useNavigate } from "react-router-dom";
 
 function SectionCarousel() {
+  const navigate = useNavigate();
   const { isTablet } = useResponsivity();
 
   return (
@@ -22,10 +24,10 @@ function SectionCarousel() {
           </p>
         </div>
         <div className="text-white flex gap-6 pt-2 md:justify-center md:gap-10 lg:justify-start lg:pt-10">
-          <StandardButton>
+          <StandardButton onClick={() => navigate("/residencial")}>
             Planos {isTablet ? null : <br />} Residenciais
           </StandardButton>
-          <StandardButton>
+          <StandardButton onClick={() => navigate("/corporativo")}>
             Planos {isTablet ? null : <br />} Corporativos
           </StandardButton>
         </div>

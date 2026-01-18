@@ -4,9 +4,11 @@ import imgTablet from "../../../assets/img/tablet/home-tablet-minutos-telecom.we
 import imgDesk from "../../../assets/img/desktop/home-desktop-minutos-telecom.webp";
 import antenaIcon from "../../../assets/icons/icon-antena-minutos-telecom.svg";
 import StandardButton from "../../ui/StandardBtn";
+import { useNavigate } from "react-router-dom";
 
 function Hero() {
   const { isMobile, isTablet, isDesk } = useResponsivity();
+  const navigate = useNavigate();
 
   return (
     <div className="lg:flex">
@@ -56,7 +58,9 @@ function Hero() {
             excelência com preço justo.
           </p>
           <div className="mt-4">
-            <StandardButton>Saiba Mais!</StandardButton>
+            <StandardButton onClick={() => navigate("/corporativo")}>
+              Saiba Mais!
+            </StandardButton>
           </div>
         </div>
       </div>

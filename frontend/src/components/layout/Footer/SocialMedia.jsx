@@ -6,6 +6,7 @@ function SocialMedia() {
       {socialMediaPaths.map((socialMedia, index) => (
         <a
           href={socialMedia.path}
+          target="_blank"
           key={index}
           className="flex gap-1 items-center "
         >

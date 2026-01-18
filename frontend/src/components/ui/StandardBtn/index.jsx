@@ -6,7 +6,8 @@ function StandardButton({
 }) {
   const variants = {
     marinho: "bg-azulMarinho hover:bg-azulMarinhoHover",
-    azulAgua: "bg-azulAgua",
+    azulAgua:
+      "bg-azulAgua text-azulMarinho font-bold text-xl hover:bg-azulClaroBg duration-200",
     whatsApp:
       "bg-whatsapp font-bold hover:bg-whatsappHover text-[4vw] md:text-lg ultra:py-3 ultra:px-6 ultra:text-xl",
   };

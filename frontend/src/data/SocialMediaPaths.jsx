@@ -6,16 +6,16 @@ export const socialMediaPaths = [
   {
     title: "Facebook",
     icon: FacebookIcon,
-    path: "/",
+    path: "https://www.facebook.com/MinutosTelecom/?locale=pt_BR",
   },
   {
     title: "Instagram",
     icon: InstagramIcon,
-    path: "/",
+    path: "https://www.instagram.com/minutostelecom/",
   },
   {
     title: "Whatsapp",
     icon: WhatsappIcon,
-    path: "/",
+    path: "https://api.whatsapp.com/send?phone=551930810000&text=Ol%C3%A1,%20Minutos!",
   },
 ];
