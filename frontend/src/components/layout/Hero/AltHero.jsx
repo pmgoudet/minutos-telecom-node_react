@@ -41,26 +41,26 @@ function AltHero() {
       )}
       {isDesk && (
         <img
-          className="lg:order-2 lg:w-[55vw] lg:overflow-hidden object-cover lg:min-h-full lg:max-h-screen lg:mt-[-152px]"
+          className="lg:order-2 lg:w-[55vw] lg:overflow-hidden object-cover lg:h-[65vh] lg:mt-[-152px]"
           src={imgDesk}
           alt="Imagem decorativa da home page"
         />
       )}
 
       {/* Hero section text */}
-      <div className="bg-azulBg border-0 px-6 py-10 lg:h-[calc(100vh-152px)] lg:order-1 lg:w-[45vw] text-white">
-        <div className="md:mx-14 lg:ml-0 lg:mr-10 lg:my-12 lg:pl-[20%] xl:mt-6 2xl:mt-20 ultra:mt-32 ultra:mr-32">
+      <div className="bg-azulBg border-0 px-6 py-10 lg:h-[calc(65vh-152px)] lg:order-1 lg:w-[45vw] text-white">
+        <div className="md:mx-14 lg:ml-0 lg:mr-6 lg:my-8 lg:pl-[20%] ultra:mt-12 ultra:mr-32">
           <div className="flex items-baseline justify-between md:justify-normal">
-            <h1 className="text-2xl my-4 md:text-3xl xl:text-4xl xl:my-8 ultra:text-5xl ultra:leading-snug">
+            <h1 className="text-2xl my-4 md:text-3xl lg:text-4xl lg:my-0 lg:pb-4 ultra:text-5xl ultra:leading-snug">
               {currentHero.title}
             </h1>
             <img
               src={currentHero.icon}
               alt={`Ícone da página ${currentHero.title} Minutos Telecom`}
-              className={`w-8 ${currentHero.distancePixels} ultra:ml-[-350px]`}
+              className={`w-8 ${currentHero.distancePixelsTablet} ${currentHero.distancePixelsDesk} ${currentHero.distancePixelsDesk} ${currentHero.distancePixelsUltra}`}
             />
           </div>
-          <div className="md:flex md:justify-between items-center">
+          <div className="md:flex md:justify-between items-center lg:block">
             {currentHero.content}
             {(location.pathname === "/residencial" ||
               location.pathname === "/corporativo") && (
