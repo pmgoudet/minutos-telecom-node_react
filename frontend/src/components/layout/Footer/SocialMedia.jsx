@@ -2,7 +2,7 @@ import { socialMediaPaths } from "../../../data/SocialMediaPaths";
 
 function SocialMedia() {
   return (
-    <div className="text-cinza flex justify-around p-4 md:mx-20 lg:mx-60 ultra:mx-96">
+    <div className="text-cinza flex justify-around p-4 md:px-20 lg:px-60 ultra:px-96 shadow-[0_-6px_20px_rgba(0,0,0,0.25)]">
       {socialMediaPaths.map((socialMedia, index) => (
         <a
           href={socialMedia.path}

@@ -43,7 +43,7 @@ function NavBar() {
                 <Link
                   key={index}
                   to={path.path}
-                  className="text-lg p-1 text-center font-semibold text-azulAgua hover:text-white duration-300"
+                  className="text-lg p-1 text-center font-semibold text-azulAgua hover:text-white duration-300 ultra:text-xl"
                 >
                   {path.title}
                 </Link>
@@ -51,7 +51,7 @@ function NavBar() {
                 <Link
                   key={index}
                   to={path.path}
-                  className="text-lg p-1 text-center text-white hover:text-azulAgua duration-300"
+                  className="text-lg p-1 text-center text-white hover:text-azulAgua duration-300 ultra:text-xl"
                 >
                   {path.title}
                 </Link>
@@ -78,7 +78,7 @@ function NavBar() {
                   {path.title}
                 </a>
               )
-            ) : null
+            ) : null,
           )}
           {!isMobile && <NavBarBtn />}
         </nav>
