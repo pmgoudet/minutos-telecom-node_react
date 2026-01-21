@@ -8,20 +8,20 @@ import iconCFTV from "../../../assets/icons/cftv-icon-minutos-telecom.svg";
 import iconHospedagemEmails from "../../../assets/icons/hospedagem-emails-icon-minutos-telecom.svg";
 import iconHospedagemSites from "../../../assets/icons/hospedagem-sites-icon-minutos-telecom.svg";
 import iconConsultoria from "../../../assets/icons/consultoria-ti-icon-minutos-telecom.svg";
+import useResponsivity from "../../../hooks/useResponsivity";
 
-//! trocar tudo por tag HTML
 const data = [
   {
-    Type: "service",
-    Title: <h3>VOIP</h3>,
-    Img: iconVOIP,
-    Texte: (
+    type: "service",
+    title: <h3>VOIP</h3>,
+    img: iconVOIP,
+    text: (
       <p>
-        Chamadas de alta qualidade para qualquer lugar do mundo por um preço
-        muito mais acessível.
+        Chamadas de alta qualidade para qualquer lugar do mundo por um{" "}
+        <strong>preço muito mais acessível</strong>.
       </p>
     ),
-    List: (
+    list: (
       <ul className="list-disc list-inside mt-2">
         <li>Economia</li>
         <li>Segurança</li>
@@ -29,17 +29,19 @@ const data = [
         <li>Mobilidade</li>
       </ul>
     ),
+    color: "bg-azulMarinho",
   },
   {
-    Type: "service",
-    Title: <h3>Internet com Link Dedicado</h3>,
-    Img: iconLinkDedicado,
-    Texte: (
+    type: "service",
+    title: <h3>Internet com Link Dedicado</h3>,
+    img: iconLinkDedicado,
+    text: (
       <p>
-        Velocidade estável e conexão dedicada para empresas que exigem o melhor.
+        Velocidade estável e conexão dedicada para{" "}
+        <strong>empresas que exigem o melhor</strong>.
       </p>
     ),
-    List: (
+    list: (
       <ul className="list-disc list-inside mt-2">
         <li>Suporte Personalizado 24x7</li>
         <li>Fibra Óptica ou Rádio Enlace</li>
@@ -48,35 +50,47 @@ const data = [
         <li>Acesso ao Monitoramento 24x7</li>
       </ul>
     ),
+    color: "bg-azulBg",
   },
   {
-    Type: "service",
-    Title: <h3>Cabeamento Estruturado</h3>,
-    Img: iconCabeamento,
-    Texte: <p>Infraestrutura sólida para uma rede mais rápida e confiável.</p>,
-  },
-  {
-    Type: "service",
-    Title: <h3>PABX Virtual</h3>,
-    Img: iconPABX,
-    Texte: (
+    type: "service",
+    title: <h3>Cabeamento Estruturado</h3>,
+    img: iconCabeamento,
+    text: (
       <p>
-        Central telefônica na nuvem: comunicação sem fronteiras para sua
-        empresa.
+        Infraestrutura sólida para uma{" "}
+        <strong>rede mais rápida e confiável</strong>.
       </p>
     ),
+    color: "bg-azulBg",
   },
   {
-    Type: "service",
-    Title: <h3>Servidores em Cloud</h3>,
-    Img: iconServidoresCloud,
-    Texte: (
-      <p>Segurança, alta performance e flexibilidade para suas operações.</p>
+    type: "service",
+    title: <h3>PABX Virtual</h3>,
+    img: iconPABX,
+    text: (
+      <p>
+        Central telefônica na nuvem: <strong>comunicação sem fronteiras</strong>{" "}
+        para sua empresa.
+      </p>
     ),
+    color: "bg-azulMarinho",
   },
   {
-    Type: "cta",
-    Title: (
+    type: "service",
+    title: <h3>Servidores em Cloud</h3>,
+    img: iconServidoresCloud,
+    text: (
+      <p>
+        <strong>Segurança, alta performance e flexibilidade</strong> para suas
+        operações.
+      </p>
+    ),
+    color: "bg-azulMarinho",
+  },
+  {
+    type: "cta",
+    title: (
       <h3>
         <a
           href="https://api.whatsapp.com/send?phone=551930810000&text=Ol%C3%A1,%20Minutos, estou interessado(a) nos serviços corporativos."
@@ -87,62 +101,94 @@ const data = [
         </a>
       </h3>
     ),
-    Img: iconAssine,
-    Texte: (
+    img: iconAssine,
+    text: (
       <p>
-        Precisa de mais informações, tirar dúvidas ou contratar nossos serviços?
-        Clique aqui!
+        Precisa de mais <strong>informações</strong>,{" "}
+        <strong>tirar dúvidas</strong> ou <strong>contratar</strong> nossos
+        serviços?{" "}
+        <a
+          href="https://api.whatsapp.com/send?phone=551930810000&text=Ol%C3%A1,%20Minutos, estou interessado(a) nos serviços corporativos."
+          target="_blank"
+          className="underline font-bold"
+        >
+          Clique aqui!
+        </a>
       </p>
     ),
   },
   {
-    Type: "service",
-    Title: <h3>CFTV</h3>,
-    Img: iconCFTV,
-    Texte: <p>Vigilância eficaz para a tranquilidade da sua empresa.</p>,
-  },
-  {
-    Type: "service",
-    Title: <h3>Hospedagem de E-mails</h3>,
-    Img: iconHospedagemEmails,
-    Texte: (
-      <p>Hospedagem de e-mails segura para uma comunicação profissional.</p>
-    ),
-  },
-  {
-    Type: "service",
-    Title: <h3>Hospedagem de Sites</h3>,
-    Img: iconHospedagemSites,
-    Texte: <p>Hospedagem de sites com suporte e desempenho garantidos.</p>,
-  },
-  {
-    Type: "service",
-    Title: <h3>Consultoria de TI</h3>,
-    Img: iconConsultoria,
-    Texte: (
+    type: "service",
+    title: <h3>CFTV</h3>,
+    img: iconCFTV,
+    text: (
       <p>
-        Potencialize sua empresa com consultoria em tecnologia da informação.
+        Vigilância eficaz para a <strong>tranquilidade da sua empresa</strong>.
       </p>
     ),
+    color: "bg-azulBg",
+  },
+  {
+    type: "service",
+    title: <h3>Hospedagem de E-mails</h3>,
+    img: iconHospedagemEmails,
+    text: (
+      <p>
+        Hospedagem de e-mails <strong>segura</strong> para uma comunicação
+        <strong>profissional</strong>.
+      </p>
+    ),
+    color: "bg-azulMarinho",
+  },
+  {
+    type: "service",
+    title: <h3>Hospedagem de Sites</h3>,
+    img: iconHospedagemSites,
+    text: (
+      <p>
+        Hospedagem de sites com <strong>suporte</strong> e{" "}
+        <strong>desempenho</strong> garantidos.
+      </p>
+    ),
+    color: "bg-azulMarinho",
+  },
+  {
+    type: "service",
+    title: <h3>Consultoria de TI</h3>,
+    img: iconConsultoria,
+    text: (
+      <p>
+        <strong>Potencialize sua empresa</strong> com consultoria em tecnologia
+        da informação.
+      </p>
+    ),
+    color: "bg-azulBg",
   },
 ];
 
 function RestanteCorporativos() {
+  const { isMobile } = useResponsivity();
+
   return (
-    <>
+    <div className="mt-6 md:mt-0 grid grid-cols-1 md:grid-cols-2 md:px-12 md:gap-6 lg:gap-10 lg:max-w-[1000px] lg:mx-auto lg:mb-10">
       {data.map((item, i) => (
         <div
           key={i}
-          className={`  ${item.Type === "cta" ? "bg-azulAgua -mx-6 px-10 text-azulMarinho" : i % 2 === 1 ? "bg-azulMarinho text-white" : "bg-azulBg text-white"} mt-6 p-5`}
+          className={`mt-6 p-5 md:mt-0
+            ${
+              item.type === "cta"
+                ? `bg-azulAgua text-azulMarinho ${isMobile ? "-mx-6 px-10" : ""}`
+                : `${item.color} text-white`
+            }`}
         >
           <div className="pb-4 flex gap-4 justify-between">
-            <div className="font-bold text-2xl">{item.Title}</div>
-            <img src={item.Img} alt={`${item.Title} Icon`} />
+            <div className="font-bold text-2xl">{item.title}</div>
+            <img src={item.img} alt={`${item.title} Icon`} />
           </div>
-          <div>{item.Texte}</div>
+          <div>{item.text}</div>
         </div>
       ))}
-    </>
+    </div>
   );
 }
 

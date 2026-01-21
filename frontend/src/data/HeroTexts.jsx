@@ -36,7 +36,7 @@ export const HeroTexts = [
         .
       </p>
     ),
-    distancePixelsTablet: "md:ml-[-333px]",
+    distancePixelsTablet: "md:ml-[-330px]",
     distancePixelsDesk: "md:ml-[-390px]",
     distancePixelsUltra: "ultra:ml-[-510px]",
   },
@@ -53,7 +53,7 @@ export const HeroTexts = [
         nossos serviços?{" "}
       </p>
     ),
-    distancePixelsTablet: "md:ml-[-150px]",
+    distancePixelsTablet: "md:ml-[-153px]",
     distancePixelsDesk: "md:ml-[-170px]",
     distancePixelsUltra: "ultra:ml-[-220px]",
   },
@@ -69,7 +69,7 @@ export const HeroTexts = [
         serviço oferecido.
       </p>
     ),
-    distancePixelsTablet: "md:ml-[-170px]",
+    distancePixelsTablet: "md:ml-[-180px]",
     distancePixelsDesk: "md:ml-[-200px]",
     distancePixelsUltra: "ultra:ml-[-260px]",
   },
@@ -86,7 +86,7 @@ export const HeroTexts = [
         <strong className="text-azulAgua font-semibold">Interfone </strong>.
       </p>
     ),
-    distancePixelsTablet: "md:ml-[-322px]",
+    distancePixelsTablet: "md:ml-[-320px]",
     distancePixelsDesk: "md:ml-[-375px]",
     distancePixelsUltra: "ultra:ml-[-490px]",
   },
