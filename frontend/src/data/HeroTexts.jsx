@@ -19,9 +19,6 @@ export const HeroTexts = [
       </p>
     ),
     //! Not the best way to do it, for sure.
-    distancePixelsTablet: "md:ml-[-330px]",
-    distancePixelsDesk: "lg:ml-[-385px]",
-    distancePixelsUltra: "ultra:ml-[-500px]",
   },
   {
     path: "/corporativo",
@@ -36,9 +33,6 @@ export const HeroTexts = [
         .
       </p>
     ),
-    distancePixelsTablet: "md:ml-[-330px]",
-    distancePixelsDesk: "md:ml-[-390px]",
-    distancePixelsUltra: "ultra:ml-[-510px]",
   },
   {
     path: "/contato",
@@ -53,9 +47,6 @@ export const HeroTexts = [
         nossos serviços?{" "}
       </p>
     ),
-    distancePixelsTablet: "md:ml-[-153px]",
-    distancePixelsDesk: "md:ml-[-170px]",
-    distancePixelsUltra: "ultra:ml-[-220px]",
   },
   {
     path: "/contratos",
@@ -69,9 +60,6 @@ export const HeroTexts = [
         serviço oferecido.
       </p>
     ),
-    distancePixelsTablet: "md:ml-[-180px]",
-    distancePixelsDesk: "md:ml-[-200px]",
-    distancePixelsUltra: "ultra:ml-[-260px]",
   },
   {
     path: "/softphone",
@@ -86,8 +74,5 @@ export const HeroTexts = [
         <strong className="text-azulAgua font-semibold">Interfone </strong>.
       </p>
     ),
-    distancePixelsTablet: "md:ml-[-320px]",
-    distancePixelsDesk: "md:ml-[-375px]",
-    distancePixelsUltra: "ultra:ml-[-490px]",
   },
 ];

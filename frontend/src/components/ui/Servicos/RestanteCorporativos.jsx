@@ -170,7 +170,7 @@ function RestanteCorporativos() {
   const { isMobile } = useResponsivity();
 
   return (
-    <div className="mt-6 md:mt-0 grid grid-cols-1 md:grid-cols-2 md:px-12 md:gap-6 lg:gap-10 lg:max-w-[1000px] lg:mx-auto lg:mb-10">
+    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-6 lg:gap-10 lg:mb-10">
       {data.map((item, i) => (
         <div
           key={i}

@@ -25,7 +25,7 @@ function InternetBandaLargaBusiness() {
   const { isMobile } = useResponsivity();
 
   return (
-    <div className="shadow-xl mb-6 md:m-12 lg:max-w-[1000px] lg:mt-10 lg:m-auto lg:mb-10">
+    <div className="shadow-xl md:mb-6 lg:mt-10 lg:mb-10">
       <div className="bg-azulBg p-4 md:flex md:gap-4 md:justify-between text-white">
         {/* Cards */}
         <div className="flex gap-2 justify-between mb-6 md:order-1 md:m-0">

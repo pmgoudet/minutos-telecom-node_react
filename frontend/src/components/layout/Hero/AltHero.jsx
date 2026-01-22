@@ -50,14 +50,14 @@ function AltHero() {
       {/* Hero section text */}
       <div className="bg-azulBg border-0 px-6 py-10 lg:h-[calc(65vh-152px)] lg:order-1 lg:w-[45vw] text-white">
         <div className="md:mx-14 lg:ml-0 lg:mr-6 lg:my-8 lg:pl-[20%] ultra:mt-12 ultra:mr-32">
-          <div className="flex items-baseline justify-between md:justify-normal">
-            <h1 className="text-2xl my-4 md:text-3xl lg:text-4xl lg:my-0 lg:pb-4 ultra:text-5xl ultra:leading-snug">
+          <div className="flex items-baseline justify-between md:justify-normal gap-4 ">
+            <h1 className="text-2xl my-4 md:text-3xl md:order-1 md: lg:text-4xl lg:my-0 lg:pb-4 ultra:text-5xl ultra:leading-snug ">
               {currentHero.title}
             </h1>
             <img
               src={currentHero.icon}
               alt={`Ícone da página ${currentHero.title} Minutos Telecom`}
-              className={`w-8 ${currentHero.distancePixelsTablet} ${currentHero.distancePixelsDesk} ${currentHero.distancePixelsDesk} ${currentHero.distancePixelsUltra}`}
+              className={`w-8 md:order-0 md:ml-[-50px] ${currentHero.distancePixelsDesk} ${currentHero.distancePixelsUltra}`}
             />
           </div>
           <div className="md:flex md:justify-between items-center lg:block">

@@ -6,7 +6,7 @@ function OutsourcingHelpDesk() {
   const { isMobile } = useResponsivity();
 
   return (
-    <div className="my-6 md:flex md:px-12 md:mt-10 lg:max-w-[1000px] lg:max-h-[490px] lg:mt-6 m-auto">
+    <div className="my-6 md:flex lg:max-h-[490px] lg:mt-6">
       <img
         src={isMobile ? imgMobile : imgTablet}
         alt="Plano Internet Banda Larga 300 Mega"
