@@ -4,7 +4,7 @@ import RestanteResidenciais from "../../ui/Servicos/RestanteResidenciais.jsx";
 
 function SectionServicosResidenciais() {
   return (
-    <section className="p-6 md:p-10 mb-6 lg:mb-10">
+    <section className="p-6 md:m-12 mb-6 lg:mb-10">
       <Plano300M />
       <Plano500M />
       <RestanteResidenciais />

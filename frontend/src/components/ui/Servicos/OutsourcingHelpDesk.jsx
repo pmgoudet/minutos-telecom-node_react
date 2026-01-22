@@ -18,7 +18,8 @@ function OutsourcingHelpDesk() {
         <h3 className=" font-bold text-2xl">Outsourcing IT & Help Desk</h3>
         <p className="text-xl pb-4">(Serviço de Terceirização de TI)</p>
         <p className="pb-2">
-          Soluções eficazes para uma gestão de tecnologia sem preocupações.
+          Soluções eficazes para uma{" "}
+          <strong>gestão de tecnologia sem preocupações</strong>.
         </p>
         <ul className="list-disc list-inside my-3 font-light">
           <li>Manutenção de computadores</li>
