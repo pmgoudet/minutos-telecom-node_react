@@ -1,4 +1,4 @@
-import Header from "../../components/layout/Header/Index";
+import Header from "../../components/layout/Header/Index.jsx";
 import AltHero from "../../components/layout/Hero/AltHero.jsx";
 import Footer from "../../components/layout/Footer";
 import SectionContratos from "../../components/sections/contratos/index.jsx";

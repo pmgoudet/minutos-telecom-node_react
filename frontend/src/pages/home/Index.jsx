@@ -1,4 +1,4 @@
-import Header from "../../components/layout/Header/Index";
+import Header from "../../components/layout/Header";
 import Hero from "../../components/layout/Hero";
 import Footer from "../../components/layout/Footer";
 import SectionCarousel from "../../components/sections/carousel";
