@@ -2,7 +2,7 @@ import { contactInfos } from "../../../data/ContactInfo";
 
 function SectionContato() {
   return (
-    <div className="p-6 mb-10 text-azulMarinho md:p-20 lg:max-w-[1000px] m-auto">
+    <div className="px-6 my-10 text-azulMarinho md:mx-12 md:my-16 lg:max-w-[900px] lg:mx-auto">
       <h4 className="font-bold text-xl mb-6 ">Fale Conosco!</h4>
       <div className="md:flex md:gap-20 justify-between">
         {/* Contatos */}

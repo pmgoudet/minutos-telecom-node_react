@@ -24,10 +24,22 @@ function SectionCarousel() {
           </p>
         </div>
         <div className="text-white flex gap-6 pt-2 md:justify-center md:gap-10 lg:justify-start lg:pt-10">
-          <StandardButton onClick={() => navigate("/residencial")}>
+          <StandardButton
+            variant="azulBg"
+            onClick={() => {
+              navigate("/residencial");
+              window.scrollTo(0, 0);
+            }}
+          >
             Planos {isTablet ? null : <br />} Residenciais
           </StandardButton>
-          <StandardButton onClick={() => navigate("/corporativo")}>
+          <StandardButton
+            variant="azulBg"
+            onClick={() => {
+              navigate("/corporativo");
+              window.scrollTo(0, 0);
+            }}
+          >
             Planos {isTablet ? null : <br />} Corporativos
           </StandardButton>
         </div>

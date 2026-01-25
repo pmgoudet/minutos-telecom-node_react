@@ -17,13 +17,19 @@ function SectionInstitucional() {
             src={imgCorporativo}
             alt="Planos Corporativos"
             className="h-56 w-full opacity-80 hover:opacity-100 transition-opacity duration-300 cursor-pointer"
-            onClick={() => navigate("/corporativo")}
+            onClick={() => {
+              navigate("/corporativo");
+              window.scrollTo(0, 0);
+            }}
           />
           <img
             src={imgResidenciais}
             alt="Planos Residenciais"
             className="h-56 opacity-80 hover:opacity-100 transition-opacity duration-300 cursor-pointer"
-            onClick={() => navigate("/residencial")}
+            onClick={() => {
+              navigate("/residencial");
+              window.scrollTo(0, 0);
+            }}
           />
         </div>
       )}

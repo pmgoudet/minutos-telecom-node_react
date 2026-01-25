@@ -7,7 +7,7 @@ function Plano500M() {
   const { isMobile } = useResponsivity();
 
   return (
-    <div className="shadow-2xl md:flex lg:max-w-[1000px] lg:max-h-[430px] lg:mt-10 m-auto">
+    <div className="shadow-2xl md:flex lg:max-h-[430px] lg:mt-10 m-auto">
       <img
         src={isMobile ? plano500mMobile : plano500mTablet}
         alt="Plano Internet Banda Larga 300 Mega"

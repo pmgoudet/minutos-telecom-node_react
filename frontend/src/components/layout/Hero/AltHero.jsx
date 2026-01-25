@@ -17,7 +17,7 @@ function AltHero() {
 
   const handleAssineJa = () => {
     window.open(
-      "https://api.whatsapp.com/send?phone=551930810000&text=Ol%C3%A1,%20Minutos, estou interessado(a) nos serviços residenciais.",
+      `https://api.whatsapp.com/send?phone=551930810000&text=Ol%C3%A1,%20Minutos, estou interessado(a) nos serviços ${location.pathname === "/residencial" ? "residenciais" : "corporativos"}.`,
       "_blank",
     );
   };

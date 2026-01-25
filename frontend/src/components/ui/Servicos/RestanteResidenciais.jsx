@@ -9,7 +9,7 @@ const data = [
     Title: (
       <h3>
         <a
-          href="https://api.whatsapp.com/send?phone=551930810000&text=Ol%C3%A1,%20Minutos, estou interessado(a) nos serviços corporativos."
+          href="https://api.whatsapp.com/send?phone=551930810000&text=Ol%C3%A1,%20Minutos, estou interessado(a) nos serviços residenciais."
           target="_blank"
           className="underline"
         >
@@ -63,7 +63,7 @@ const data = [
 
 function RestanteResidenciais() {
   return (
-    <div className="flex flex-col md:grid md:grid-cols-2 md:gap-x-6 lg:mt-10 lg:gap-10 lg:max-w-[1000px] lg:m-auto">
+    <div className="flex flex-col md:grid md:grid-cols-2 md:gap-x-6 lg:mt-10 lg:gap-10 lg:m-auto">
       {data.map((item, i) => (
         <div
           key={i}

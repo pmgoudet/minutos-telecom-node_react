@@ -73,7 +73,7 @@ function InternetBandaLargaBusiness() {
 
         {/* Text block */}
         <div className="md:order-0">
-          <div className="flex justify-between items-center pb-4 w-4/5">
+          <div className="flex justify-between items-center pb-4 md:w-4/5">
             <h3 className="text-azulAgua font-bold text-2xl md:text-xl lg:text-3xl">
               Internet Banda Larga
             </h3>

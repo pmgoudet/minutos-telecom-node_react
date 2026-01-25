@@ -25,13 +25,13 @@ function SectionContratos() {
   const { isMobile } = useResponsivity();
 
   return (
-    <section className="mb-10 md:m-10 md:flex md:justify-center md:my-14 lg:max-w-[800px] lg:mx-auto">
+    <section className="mb-10 md:mx-12 md:my-16 md:flex md:justify-center md:gap-8 lg:max-w-[800px] lg:mx-auto">
       <img
         src={isMobile ? imgMobile : imgTablet}
         alt="Imagem decorativa da sessão contratos"
       />
       <div>
-        <div className="m-6 text-azulMarinho">
+        <div className="m-6 text-azulMarinho md:m-0 md:mb-4">
           <h2 className="text-2xl font-semibold pb-4">
             Download dos Contratos:
           </h2>
@@ -47,7 +47,7 @@ function SectionContratos() {
               key={i}
               href={item.content}
               target="_blank"
-              className="text-white bg-azulMarinho lg:hover:bg-azulMarinhoHover p-2 rounded-lg mx-6 mb-4 flex items-center justify-between"
+              className="text-white bg-azulMarinho lg:hover:bg-azulMarinhoHover p-2 rounded-lg mx-6 mb-4 flex items-center justify-between md:mx-0"
             >
               {item.title}
               <img src={iconPDF} alt="Ícone de PDF" className="h-7" />

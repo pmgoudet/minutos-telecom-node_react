@@ -4,7 +4,7 @@ import StandardButton from "../../ui/StandardBtn";
 
 function SectionSoftPhone() {
   return (
-    <section className="px-6 py-10 mb-10 md:max-w-[400px] mx-auto">
+    <section className="px-6 py-10 mb-10 md:max-w-[400px] mx-auto md:pt-16">
       <p className="pb-4">
         Clique no botão abaixo e baixe o software de instalação do Softphone.
       </p>
