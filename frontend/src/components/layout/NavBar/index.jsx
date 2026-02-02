@@ -4,18 +4,22 @@ import { navBarPaths } from "../../../data/NavBarPaths.jsx";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import useResponsivity from "../../../hooks/useResponsivity.jsx";
+import { useScrolled } from "../../../hooks/useScroll.jsx";
 
 function NavBar() {
   const [openBurgerMenu, setOpenBurgerMenu] = useState(false);
   const { isMobile, width } = useResponsivity();
   const location = useLocation(); //to find the URL path
+  const scrolled = useScrolled();
 
   useEffect(() => {
     setOpenBurgerMenu(!isMobile);
   }, [isMobile]);
 
   return (
-    <div className="p-0 justify-items-center lg:w-[55vw]">
+    <div
+      className={`md:w-full lg:w-[55vw] ${scrolled ? "justify-items-end" : "justify-items-center "}`}
+    >
       {/* Burger Menu - Mobile */}
       {isMobile && (
         <Hamburger
@@ -30,13 +34,15 @@ function NavBar() {
       {/* Navigation Bar */}
       <div
         className={`
-        w-full bg-azulMarinho rounded-md md:bg-black/80 md:rounded-none md:relative md:z-40 lg:h-[152px] lg:pt-12
+        w-full bg-azulMarinho rounded-md md:bg-black/80 md:rounded-none md:relative md:z-40 
         transition-all duration-500 ease-in-out md:px-12
         overflow-visible
-        ${openBurgerMenu ? "max-h-96 opacity-100 p-4" : "max-h-0 opacity-0 p-0"}
+        ${openBurgerMenu ? "max-h-96 opacity-100 p-4" : "max-h-0 opacity-0 p-0"} ${scrolled ? "lg:h-[80px]" : "lg:h-[152px] lg:pt-12"}
       `}
       >
-        <nav className="flex flex-col md:flex-row items-center md:justify-between md:px-10 lg:p-0 lg:pr-[12%] md:relative md:z-50 ">
+        <nav
+          className={`flex flex-col md:flex-row items-center md:justify-between md:px-10 lg:p-0 lg:pr-[12%] md:relative md:z-50 ${scrolled && isMobile && "absolute z-50 p-4 bg-azulMarinho right-6 top-16 shadow-md transition-all duration-300 rounded-md"}`}
+        >
           {navBarPaths.map((path, index) =>
             path.color === "primaria" ? (
               path.path === location.pathname ? (

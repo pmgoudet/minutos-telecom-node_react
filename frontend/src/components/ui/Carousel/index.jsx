@@ -58,10 +58,10 @@ export const Card = React.memo(function ({ data, dataIndex }) {
             isMobile
               ? coverMobile
               : isTablet
-              ? coverTablet
-              : isDesk
-              ? coverDesk
-              : null
+                ? coverTablet
+                : isDesk
+                  ? coverDesk
+                  : null
           }
           alt={title}
           draggable={false}
