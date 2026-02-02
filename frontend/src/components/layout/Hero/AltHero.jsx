@@ -28,18 +28,22 @@ function AltHero() {
     <div className={`lg:flex lg:bg-azulBg ${scrolled && isDesk && "pt-40"} `}>
       {/* Hero section image */}
       {isMobile && (
-        <img
-          className={`h-48 w-full lg:order-2 lg:w-[55vw] lg:overflow-hidden object-cover ${scrolled && "pt-44"}`}
-          src={imgMobile}
-          alt="Imagem decorativa da home page"
-        />
+        <div className={`${scrolled && "pt-40"}`}>
+          <img
+            className={`h-48 w-full lg:order-2 lg:w-[55vw] lg:overflow-hidden object-cover `}
+            src={imgMobile}
+            alt="Imagem decorativa da home page"
+          />
+        </div>
       )}
       {isTablet && (
-        <img
-          className={`h-52 w-full mt-[-84px] z-0 lg:order-2 lg:w-[55vw] lg:overflow-hidden object-cover ${scrolled && "pt-52"}`}
-          src={imgTablet}
-          alt="Imagem decorativa da home page"
-        />
+        <div className={`${scrolled && "pt-52"}`}>
+          <img
+            className={`h-52 w-full mt-[-84px] z-0 lg:order-2 lg:w-[55vw] lg:overflow-hidden object-cover`}
+            src={imgTablet}
+            alt="Imagem decorativa da home page"
+          />
+        </div>
       )}
       {isDesk && (
         <img
