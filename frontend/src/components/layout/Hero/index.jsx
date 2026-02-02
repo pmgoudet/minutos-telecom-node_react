@@ -5,31 +5,33 @@ import imgDesk from "../../../assets/img/desktop/home-desktop-minutos-telecom.we
 import antenaIcon from "../../../assets/icons/icon-antena-minutos-telecom.svg";
 import StandardButton from "../../ui/StandardBtn";
 import { useNavigate } from "react-router-dom";
+import { useScrolled } from "../../../hooks/useScroll";
 
 function Hero() {
   const { isMobile, isTablet, isDesk } = useResponsivity();
   const navigate = useNavigate();
+  const scrolled = useScrolled();
 
   return (
-    <div className="lg:flex">
+    <div className={`lg:flex lg:bg-azulBg ${scrolled && isDesk && "pt-40"} `}>
       {/* Hero section image */}
       {isMobile && (
         <img
-          className="w-full lg:order-2 lg:w-[55vw] lg:overflow-hidden object-cover"
+          className={`w-full lg:order-2 lg:w-[55vw] lg:overflow-hidden object-cover ${scrolled && "pt-44"}`}
           src={imgMobile}
           alt="Imagem decorativa da home page"
         />
       )}
       {isTablet && (
         <img
-          className="w-full mt-[-84px] z-0 lg:order-2 lg:w-[55vw] lg:overflow-hidden object-cover"
+          className={`w-full mt-[-84px] z-0 lg:order-2 lg:w-[55vw] lg:overflow-hidden object-cover ${scrolled && "pt-52"}`}
           src={imgTablet}
           alt="Imagem decorativa da home page"
         />
       )}
       {isDesk && (
         <img
-          className="lg:order-2 lg:w-[55vw] lg:overflow-hidden object-cover lg:min-h-full lg:max-h-screen lg:mt-[-152px]"
+          className={`lg:order-2 lg:w-[55vw] lg:overflow-hidden object-cover lg:min-h-full lg:max-h-screen lg:mt-[-152px]}`}
           src={imgDesk}
           alt="Imagem decorativa da home page"
         />

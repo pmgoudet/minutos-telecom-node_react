@@ -5,6 +5,7 @@ import imgDesk from "../../../assets/img/desktop/home-desktop-minutos-telecom.we
 import StandardButton from "../../ui/StandardBtn";
 import { useLocation } from "react-router-dom";
 import { HeroTexts } from "../../../data/HeroTexts";
+import { useScrolled } from "../../../hooks/useScroll";
 
 //? =============================================
 //? Hero section made for every page but the Home
@@ -14,6 +15,7 @@ function AltHero() {
   const { isMobile, isTablet, isDesk } = useResponsivity();
   const location = useLocation();
   const currentHero = HeroTexts.find((hero) => hero.path === location.pathname);
+  const scrolled = useScrolled();
 
   const handleAssineJa = () => {
     window.open(
@@ -23,18 +25,18 @@ function AltHero() {
   };
 
   return (
-    <div className="lg:flex">
+    <div className={`lg:flex lg:bg-azulBg ${scrolled && isDesk && "pt-40"} `}>
       {/* Hero section image */}
       {isMobile && (
         <img
-          className="h-48 w-full lg:order-2 lg:w-[55vw] lg:overflow-hidden object-cover"
+          className={`h-48 w-full lg:order-2 lg:w-[55vw] lg:overflow-hidden object-cover ${scrolled && "pt-44"}`}
           src={imgMobile}
           alt="Imagem decorativa da home page"
         />
       )}
       {isTablet && (
         <img
-          className="h-52 w-full mt-[-84px] z-0 lg:order-2 lg:w-[55vw] lg:overflow-hidden object-cover"
+          className={`h-52 w-full mt-[-84px] z-0 lg:order-2 lg:w-[55vw] lg:overflow-hidden object-cover ${scrolled && "pt-52"}`}
           src={imgTablet}
           alt="Imagem decorativa da home page"
         />

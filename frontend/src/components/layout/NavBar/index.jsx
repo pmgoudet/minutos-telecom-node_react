@@ -41,7 +41,7 @@ function NavBar() {
       `}
       >
         <nav
-          className={`flex flex-col md:flex-row items-center md:justify-between md:px-10 lg:p-0 lg:pr-[12%] md:relative md:z-50 ${scrolled && isMobile && "absolute z-50 p-4 bg-azulMarinho right-6 top-16 shadow-md transition-all duration-300 rounded-md"}`}
+          className={`flex flex-col md:flex-row items-center md:justify-between md:px-10 lg:p-0 lg:pr-[12%] md:relative md:z-50 ${scrolled && isMobile && "absolute z-50 p-4 bg-azulMarinho right-6 top-16 shadow-md transition-all duration-300 rounded-md border-solid border-[10px] border-azulBg"}`}
         >
           {navBarPaths.map((path, index) =>
             path.color === "primaria" ? (
@@ -57,6 +57,7 @@ function NavBar() {
                 <Link
                   key={index}
                   to={path.path}
+                  onClick={() => window.scrollTo(0, 0)}
                   className="text-lg p-1 text-center text-white hover:text-azulAgua duration-300 ultra:text-xl"
                 >
                   {path.title}
@@ -69,6 +70,7 @@ function NavBar() {
                   key={index}
                   to={path.path}
                   target={"_self"}
+                  onClick={() => window.scrollTo(0, 0)}
                   className="font-semibold text-lg p-1 text-center text-azulAgua"
                 >
                   {path.title}

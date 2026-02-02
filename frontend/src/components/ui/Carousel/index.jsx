@@ -102,7 +102,7 @@ export default function ResponsiveCarousel() {
 
   return (
     <div
-      className="relative w-full "
+      className="relative w-full z-0"
       onMouseEnter={stopAutoPlay}
       onMouseLeave={startAutoPlay}
     >

@@ -11,7 +11,7 @@ const Header = () => {
       }`}
     >
       <div
-        className={`mx-auto py-4 px-6 md:p-0 lg:flex lg:w-full ${scrolled && "py-1 flex justify-between items-center md:flex-col lg:flex-row lg:h-20 ultra:h-28"}`}
+        className={`mx-auto py-4 px-6 md:p-0 lg:flex lg:w-full ${scrolled && "py-1 flex justify-between items-center md:flex-col lg:flex-row lg:h-20 ultra:h-20"}`}
       >
         {/* Logo */}{" "}
         <div className={`lg:w-[45vw]`}>

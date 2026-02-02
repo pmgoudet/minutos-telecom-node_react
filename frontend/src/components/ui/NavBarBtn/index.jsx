@@ -60,6 +60,7 @@ function NavBarBtn() {
               <Link
                 key={path.title}
                 to={path.path}
+                onClick={() => window.scrollTo(0, 0)}
                 className="block px-4 py-2 text-white hover:text-azulAgua"
               >
                 {path.title}
