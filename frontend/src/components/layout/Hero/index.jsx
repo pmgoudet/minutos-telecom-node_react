@@ -17,7 +17,7 @@ function Hero() {
       {/* Hero section image */}
       {isMobile && (
         <img
-          className={`w-full lg:order-2 lg:w-[55vw] lg:overflow-hidden object-cover ${scrolled && "pt-44"}`}
+          className={`w-full lg:order-2 lg:w-[55vw] lg:overflow-hidden object-cover ${scrolled && "pt-40"}`}
           src={imgMobile}
           alt="Imagem decorativa da home page"
         />

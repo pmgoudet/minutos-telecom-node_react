@@ -1,5 +1,6 @@
 import useResponsivity from "../../../hooks/useResponsivity";
-import gif from "../../../assets/gifs/gif-tech.gif";
+// import gif from "../../../assets/gifs/gif-tech.gif";
+import GifHome from "../../ui/Lottie";
 import imgCorporativo from "../../../assets/img/desktop/corporativo-minutos-telecom.png";
 import imgResidenciais from "../../../assets/img/desktop/residencial-minutos-telecom.png";
 import { useNavigate } from "react-router-dom";
@@ -104,7 +105,7 @@ function SectionInstitucional() {
           Suas reuniões em alta definição,{" "}
           <strong className="text-azulBg">sem travar</strong>.
         </h3>
-        <img src={gif} alt="Animação Telecom" className="md:order-0 md:h-44" />
+        <GifHome />
       </div>
     </section>
   );

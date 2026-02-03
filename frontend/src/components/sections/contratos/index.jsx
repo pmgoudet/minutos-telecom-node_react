@@ -47,7 +47,7 @@ function SectionContratos() {
               key={i}
               href={item.content}
               target="_blank"
-              className="text-white bg-azulMarinho lg:hover:bg-azulMarinhoHover p-2 rounded-lg mx-6 mb-4 flex items-center justify-between md:mx-0"
+              className="text-white duration-300 bg-azulMarinho lg:hover:bg-azulMarinhoHover p-2 rounded-lg mx-6 mb-4 flex items-center justify-between md:mx-0"
             >
               {item.title}
               <img src={iconPDF} alt="Ícone de PDF" className="h-7" />
