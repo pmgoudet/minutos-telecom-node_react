@@ -25,7 +25,7 @@ function AltHero() {
   };
 
   return (
-    <div className={`lg:flex lg:bg-azulBg ${scrolled && isDesk && "pt-40"} `}>
+    <div className={`lg:flex bg-azulBg ${scrolled && isDesk && "pt-40"} `}>
       {/* Hero section image */}
       {isMobile && (
         <div className={`${scrolled && "pt-40"}`}>

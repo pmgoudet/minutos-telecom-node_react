@@ -13,7 +13,7 @@ function Hero() {
   const scrolled = useScrolled();
 
   return (
-    <div className={`lg:flex lg:bg-azulBg ${scrolled && isDesk && "pt-40"} `}>
+    <div className={`lg:flex bg-azulBg ${scrolled && isDesk && "pt-40"} `}>
       {/* Hero section image */}
       {isMobile && (
         <img

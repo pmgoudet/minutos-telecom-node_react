@@ -19,7 +19,7 @@ const Header = () => {
             <img
               src="/logo/logotipo-fundo-escuro-minutos-telecom.svg"
               alt="Logotipo Minutos Telecom"
-              className={`lg:m-0 lg:pl-[22%] transition-all duration-300 ${scrolled ? "p-0 scale-50 origin-left md:origin-center" : "m-auto  pt-5 pb-4 md:pt-8 md:pb-6 scale-100"}`}
+              className={`lg:m-0 lg:pl-[22%] transition-all duration-500 ${scrolled ? "p-0 scale-50 origin-left md:origin-center" : "m-auto  pt-5 pb-4 md:pt-8 md:pb-6 scale-100"}`}
             />
           </a>
         </div>
