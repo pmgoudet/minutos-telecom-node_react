@@ -5,6 +5,16 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      xs: "480px",
+      sm: "640px",
+      md: "768px",
+      lg: "1080px",
+      xl: "1280px",
+      "2xl": "1440px",
+      ultra: "1800px",
+      mega: "2500px",
+    },
     extend: {
       colors: {
         azulBg: '#124A9F',
@@ -26,15 +36,6 @@ export default {
       },
       backgroundImage: {
         'degrade-azul-claro': 'linear-gradient(0deg, rgba(255, 255, 255, 1) 100%, rgba(1, 212, 255, 0.2) 100%)',
-      },
-      screens: {
-        xs: "480px",
-        sm: "640px",
-        md: "768px",
-        lg: "1080px",
-        xl: "1280px",
-        "2xl": "1440px",
-        ultra: "1800px",
       },
     },
   },

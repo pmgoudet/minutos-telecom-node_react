@@ -8,7 +8,7 @@ function SectionCarousel() {
   const { isTablet } = useResponsivity();
 
   return (
-    <section className="py-8 lg:flex lg:justify-center lg:gap-40 lg:items-center lg:h-[100vh]">
+    <section className="py-8 lg:flex lg:justify-center lg:gap-40 lg:items-center lg:h-[100vh] mega:h-auto mega:max-w-[2000px] mega:m-auto">
       <div className="lg:order-1 lg:w-1/3 ">
         <ResponsiveCarousel />
       </div>
