@@ -13,7 +13,7 @@ export default {
       xl: "1280px",
       "2xl": "1440px",
       ultra: "1800px",
-      mega: "2500px",
+      mega: "2200px",
     },
     extend: {
       colors: {
