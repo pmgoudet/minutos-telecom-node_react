@@ -10,7 +10,7 @@ function SectionInstitucional() {
   const navigate = useNavigate();
 
   return (
-    <section className="md:flex md:gap-10 md:p-20 lg:h-[100vh] md:items-center lg:gap-8 lg:justify-center mega:h-auto mega:pt-0">
+    <section className="md:flex md:gap-10 md:p-20 lg:h-[100vh] md:items-center lg:gap-8 lg:justify-center mega:h-auto mega:pt-0 lg:min-h-[900px]">
       {/* Desktop Left Images */}
       {isDesk && (
         <div className="flex flex-col gap-8">
