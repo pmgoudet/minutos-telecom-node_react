@@ -1,12 +1,12 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Home from "../pages/home/Index";
-import Residencial from "../pages/residencial";
-import Corporativo from "../pages/corporativo";
-import Contato from "../pages/contato";
-import AreaDoCliente from "../pages/area-do-cliente";
-import Contratos from "../pages/contratos";
-import SoftPhone from "../pages/softphone";
+import Home from "../pages/public/home/Index";
+import Residencial from "../pages/public/residencial";
+import Corporativo from "../pages/public/corporativo";
+import Contato from "../pages/public/contato";
+import AreaDoCliente from "../pages/public/area-do-cliente";
+import Contratos from "../pages/public/contratos";
+import SoftPhone from "../pages/public/softphone";
 
 const router = createBrowserRouter([
   {

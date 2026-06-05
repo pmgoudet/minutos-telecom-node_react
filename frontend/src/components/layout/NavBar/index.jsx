@@ -30,14 +30,14 @@ function NavBar() {
           label="menu"
         />
       )}
-
+      {/* pointer-events-none pointer-events-auto */}
       {/* Navigation Bar */}
       <div
         className={`
         w-full bg-azulMarinho rounded-md md:bg-black/80 md:rounded-none md:relative md:z-40 
         transition-all duration-500 ease-in-out md:px-12
         overflow-visible
-        ${openBurgerMenu ? "max-h-96 opacity-100 p-4" : "max-h-0 opacity-0 p-0"} ${scrolled ? "lg:h-[80px]" : "lg:h-[152px] lg:pt-12"}
+        ${openBurgerMenu ? "max-h-96 opacity-100 p-4 pointer-events-auto" : "max-h-0 opacity-0 p-0 pointer-events-none"} ${scrolled ? "lg:h-[80px]" : "lg:h-[152px] lg:pt-12"}
       `}
       >
         <nav
