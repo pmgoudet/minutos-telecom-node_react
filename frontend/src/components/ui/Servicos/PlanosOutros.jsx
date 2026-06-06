@@ -55,7 +55,7 @@ function PlanosOutros() {
                   <p>R$</p>
                 </div>
 
-                <p className="text-5xl md:text-3xl text-azulAgua">
+                <p className="text-5xl md:text-5xl text-azulAgua">
                   {plano.price}
                 </p>
 
