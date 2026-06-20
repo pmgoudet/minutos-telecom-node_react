@@ -15,7 +15,7 @@ export const navBarPaths = [
     color: "primaria",
   },
   {
-    title: "Tel. Móvel",
+    title: "Dados Móveis",
     path: "/telefonia-movel",
     color: "primaria",
   },

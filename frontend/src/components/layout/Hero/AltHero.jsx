@@ -18,8 +18,15 @@ function AltHero() {
   const scrolled = useScrolled();
 
   const handleAssineJa = () => {
+    const servico =
+      location.pathname === "/residencial"
+        ? "residenciais"
+        : location.pathname === "/telefonia-movel"
+          ? "de dados móveis"
+          : "corporativos";
+
     window.open(
-      `https://api.whatsapp.com/send?phone=551930810000&text=Ol%C3%A1,%20Minutos, estou interessado(a) nos serviços ${location.pathname === "/residencial" ? "residenciais" : "corporativos"}.`,
+      `https://api.whatsapp.com/send?phone=551930810000&text=Ol%C3%A1,%20Minutos, estou interessado(a) nos serviços ${servico}.`,
       "_blank",
     );
   };
