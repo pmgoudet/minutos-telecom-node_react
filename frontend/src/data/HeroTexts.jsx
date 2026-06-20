@@ -37,7 +37,7 @@ export const HeroTexts = [
   },
   {
     path: "/telefonia-movel",
-    title: "Telefonia Móvel",
+    title: "Dados Móveis",
     icon: telefoniaMovelIcon,
     content: (
       <p className="font-light mb-2 md:text-xl xl:text-lg xl:leading-8 xl:mb-6 ultra:text-2xl ultra:leading-10 md:w-2/3 lg:w-full lg:pr-10">
