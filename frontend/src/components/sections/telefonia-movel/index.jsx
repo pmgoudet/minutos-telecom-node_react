@@ -1,6 +1,7 @@
 import whatsappIcon from "../../../assets/icons/whatsapp-icon-minutos-telecom.png";
 import wazeIcon from "../../../assets/icons/waze-icon-minutos-telecom.svg";
 import googleMapsIcon from "../../../assets/icons/google-maps-icon-minutos-telecom.svg";
+import useResponsivity from "../../../hooks/useResponsivity";
 
 const planosTelefoniaMovel = [
   {
@@ -57,20 +58,20 @@ const appsIlimitados = [
 ];
 
 function AppsIlimitados() {
+  const { isMobile } = useResponsivity();
+
   return (
     <div className="mb-10">
       <h2 className="text-azulMarinho font-bold text-2xl mb-4">
         Apps ilimitados:
       </h2>
 
-      <div className="flex gap-6 flex-wrap">
+      <div
+        className={`flex ${isMobile ? "flex-col" : "flex-row"} gap-6 flex-wrap`}
+      >
         {appsIlimitados.map((app) => (
           <div key={app.nome} className="flex items-center gap-2">
-            <img
-              className="w-8 h-8 text-azulMarinho"
-              src={app.icone}
-              alt={app.nome}
-            />
+            <img className="w-8 h-8" src={app.icone} alt={app.nome} />
 
             <p className="font-semibold text-azulMarinho">{app.nome}</p>
           </div>
