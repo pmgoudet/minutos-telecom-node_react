@@ -69,7 +69,8 @@ function AltHero() {
           <div className="md:flex md:justify-between items-center lg:block">
             {currentHero.content}
             {(location.pathname === "/residencial" ||
-              location.pathname === "/corporativo") && (
+              location.pathname === "/corporativo" ||
+              location.pathname === "/telefonia-movel") && (
               <div className="mt-4">
                 <StandardButton variant="azulAgua" onClick={handleAssineJa}>
                   Assine já!
