@@ -7,6 +7,7 @@ import Contato from "../pages/public/contato";
 import AreaDoCliente from "../pages/public/area-do-cliente";
 import Contratos from "../pages/public/contratos";
 import SoftPhone from "../pages/public/softphone";
+import TelefoniaMovel from "../pages/public/telefonia-movel";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "/corporativo",
     element: <Corporativo />,
+  },
+  {
+    path: "/telefonia-movel",
+    element: <TelefoniaMovel />,
   },
   {
     path: "/contato",

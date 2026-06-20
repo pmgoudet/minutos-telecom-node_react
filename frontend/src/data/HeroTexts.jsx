@@ -1,5 +1,6 @@
 import residenciaisIcon from "../assets/icons/residencial-icon-minutos-telecom.svg";
 import corporativosIcon from "../assets/icons/corporativo-icon-minutos-telecom.svg";
+import telefoniaMovelIcon from "../assets/icons/telefonia-movel-icon-minutos-telecom.svg";
 import contatoIcon from "../assets/icons/contato-pagina-icon-minutos-telecom.svg";
 import contratosIcon from "../assets/icons/contratos-icon-minutos-telecom.svg";
 import softPhoneIcon from "../assets/icons/download-softphone-icon-minutos-telecom.svg";
@@ -29,6 +30,20 @@ export const HeroTexts = [
         Tecnologia que se adapta ao seu negócio. Benefícios que atendem{" "}
         <strong className="text-azulAgua font-semibold">
           empresas de todos os tamanhos
+        </strong>
+        .
+      </p>
+    ),
+  },
+  {
+    path: "/telefonia-movel",
+    title: "Telefonia Móvel",
+    icon: telefoniaMovelIcon,
+    content: (
+      <p className="font-light mb-2 md:text-xl xl:text-lg xl:leading-8 xl:mb-6 ultra:text-2xl ultra:leading-10 md:w-2/3 lg:w-full lg:pr-10">
+        Com Minutos Conecta, fale e navegue sem complicações.{" "}
+        <strong className="text-azulAgua font-semibold">
+          Suporte humanizado e ágil
         </strong>
         .
       </p>
