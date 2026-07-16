@@ -2,22 +2,22 @@ import { sanitizeInput } from "../utils/sanitize.js";
 import validator from 'validator';
 
 //todo REFATORAR. TOO MUCH REPEATED CODE 
-export function sanitizeClientData(client) {
+export function sanitizeClientData(req, res, next) {
   const errors = [];
 
   // Individual sanitizing
-  const name = sanitizeInput(client.name);
-  const date_of_birth = sanitizeInput(client.date_of_birth);
-  const address = sanitizeInput(client.address);
-  const complement = sanitizeInput(client.complement);
-  const postal_code = sanitizeInput(String(client.postal_code));
-  const city = sanitizeInput(client.city);
-  const phone = sanitizeInput(client.phone);
-  const email = sanitizeInput(client.email);
-  const password = sanitizeInput(client.password);
-  const client_type = sanitizeInput(client.client_type);
-  const status = sanitizeInput(client.status);
-  const fk_id_admin = sanitizeInput(client.fk_id_admin);
+  const name = sanitizeInput(req.body.name);
+  const date_of_birth = sanitizeInput(req.body.date_of_birth);
+  const address = sanitizeInput(req.body.address);
+  const complement = sanitizeInput(req.body.complement);
+  const postal_code = sanitizeInput(String(req.body.postal_code));
+  const city = sanitizeInput(req.body.city);
+  const phone = sanitizeInput(req.body.phone);
+  const email = sanitizeInput(req.body.email);
+  const password = sanitizeInput(req.body.password);
+  const client_type = sanitizeInput(req.body.client_type);
+  const status = "active";
+  const fk_id_admin = sanitizeInput(req.body.fk_id_admin);
 
   // Verifications
   if (!name) errors.push("Name is required.");
@@ -29,54 +29,18 @@ export function sanitizeClientData(client) {
   if (!email) errors.push("Email is required.");
   if (!password) errors.push("Password is required.");
   if (!client_type) errors.push("Client type is required.");
-  if (!password) errors.push("Password is required.");
 
   if (!validator.isEmail(email)) errors.push("Invalid email format.");
 
   if (errors.length > 0) {
-    throw new Error(errors.join(" "));
+    res.status(422).json(errors.join(" "));
+  } else {
+    req.newClient = { name, date_of_birth, address, complement, postal_code, city, phone, email, password, client_type, status, fk_id_admin };
+    next();
   }
-
-  return { name, date_of_birth, address, complement, postal_code, city, phone, email, password, client_type, status, fk_id_admin };
 }
 
-// export function sanitizeClientData(client) {
-//   const errors = [];
-//   const requiredFields = [
-//     "name",
-//     "date_of_birth",
-//     "address",
-//     "postal_code",
-//     "city",
-//     "phone",
-//     "email",
-//     "password",
-//     "client_type"
-//   ];
-//   const optionalFields = ["complement", "status", "fk_id_admin"];
-//   const sanitized = {};
-
-//   [...requiredFields, ...optionalFields].forEach((field) => {
-//     const value = client[field] !== undefined ? String(client[field]) : "";
-//     sanitized[field] = sanitizeInput(value);
-
-//     if (requiredFields.includes(field) && !sanitized[field]) {
-//       errors[field] = `${formatFieldName(field)} is required.`;
-//     }
-
-//     // Specific validations
-//     if (sanitized.email && !validator.isEmail(sanitized.email)) {
-//       errors.email = "Invalid email format.";
-//     }
-
-//     if (Object.keys(errors).length > 0) {
-//       throw new Error(Object.values(errors).join(" "));
-//     }
-
-//     return sanitized;
-//   });
-// }
-
+//todo VERIFICAR SE TÁ OK
 export function sanitizeUpdatedClientData(client) {
   const errors = [];
   let inputs = ["name", "date_of_birth", "address", "complement", "postal_code", "city", "phone", "email", "client_type"]

@@ -11,10 +11,19 @@ export default class ClientController {
     this.clientModel = new ClientModel();
   }
 
+
+  //! =============================================================
+  //! ======================  AQUI O PRÓXIMO ======================
+  //! =============================================================
+
+  //todo TEM QUE RESOLVER O BUG DO TOJSON
+  //todo const newClient = new Client(clients);
+
   async getActiveClients(req, res) {
     try {
       const clients = await this.clientModel.queryActiveClients();
-      res.status(200).json(clients);
+      const newClient = new Client(clients);
+      res.status(200).json(newClient);
     } catch (err) {
       res.status(500).json({ err: 'Internal Server Error' });
     }
@@ -53,7 +62,7 @@ export default class ClientController {
 
   async createClient(req, res) {
     try {
-      const { name, date_of_birth, address, complement, postal_code, city, phone, email, password, client_type, status, fk_id_admin, } = req.body;
+      const { name, date_of_birth, address, complement, postal_code, city, phone, email, password, status, client_type, fk_id_admin, } = req.newClient;
       const newClient = new Client({
         id_admin: null,
         name,
@@ -65,14 +74,13 @@ export default class ClientController {
         phone,
         email,
         password,
-        client_type,
         status,
+        client_type,
         fk_id_admin,
         registration_date: new Date()
       });
+      // console.log(newClient);
       const createdClient = await this.clientServices.fetchCreateClient(newClient);
-
-      console.log(createdClient)
 
       res.status(201).json(createdClient);
     } catch (error) {

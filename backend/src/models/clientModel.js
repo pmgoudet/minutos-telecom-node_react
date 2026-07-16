@@ -4,19 +4,19 @@ export default class ClientModel {
 
   async queryActiveClients() {
     const db = await connect();
-    const [rows] = await db.query("SELECT id_client, name, date_of_birth, address, complement, postal_code, city, phone, email, password, client_type, status fk_id_admin, registration_date FROM clients WHERE status = 'active'");
+    const [rows] = await db.query("SELECT id_client, name, date_of_birth, address, complement, postal_code, city, phone, email, password, client_type, status, fk_id_admin, registration_date FROM clients WHERE status = 'active'");
     return rows;
   }; //! left "password" to test Client.toJSON() method; 
 
   async queryInactiveClients() {
     const db = await connect();
-    const [rows] = await db.query("SELECT id_client, name, date_of_birth, address, complement, postal_code, city, phone, email, password, client_type, status fk_id_admin, registration_date FROM clients WHERE status = 'inactive'");
+    const [rows] = await db.query("SELECT id_client, name, date_of_birth, address, complement, postal_code, city, phone, email, client_type, status, fk_id_admin, registration_date FROM clients WHERE status = 'inactive'");
     return rows;
   };
 
   async queryClientById(id) {
     const db = await connect();
-    const [rows] = await db.query(`SELECT id_client, name, date_of_birth, address, complement, postal_code, city, phone, email, password, client_type, status fk_id_admin, registration_date FROM clients WHERE id_client = ? LIMIT 1`, [id]);
+    const [rows] = await db.query(`SELECT id_client, name, date_of_birth, address, complement, postal_code, city, phone, email, client_type, status, fk_id_admin, registration_date FROM clients WHERE id_client = ? LIMIT 1`, [id]);
     return rows[0];
   };
 

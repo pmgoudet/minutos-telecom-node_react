@@ -9,7 +9,7 @@ function AreaDoCliente() {
       <LoginHero />
 
       <div className="flex justify-center items-center py-16 px-6">
-        <h1>CLIENTE CONECTADO</h1>
+        <h1>ADMIN CONECTADO</h1>
       </div>
 
       <Footer />

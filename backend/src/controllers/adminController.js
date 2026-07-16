@@ -54,7 +54,7 @@ export default class AdminController {
   async createAdmin(req, res) {
     try {
 
-      const { name, email, password, status } = req.body;
+      const { name, email, password, status } = req.newAdmin;
       const newAdmin = new Admin({
         id_admin: null,
         name,

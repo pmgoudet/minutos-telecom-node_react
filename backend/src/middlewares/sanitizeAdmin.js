@@ -1,18 +1,13 @@
 import { sanitizeInput } from "../utils/sanitize.js";
 import validator from 'validator';
 
-//! Isso aqui é de fato um middleware ???
-//todo Esta função deveria ser dividida em dois middlewares:
-// 1  middlewares/sanitize.js
-// 2  middlewares/validate.js
-
-export function sanitizeAdminData(admin) {
+export function sanitizeAdminData(req, res, next) {
   const errors = [];
 
   // Individual sanitizing
-  const name = sanitizeInput(admin.name);
-  const email = sanitizeInput(admin.email);
-  const password = sanitizeInput(admin.password);
+  const name = sanitizeInput(req.body.name);
+  const email = sanitizeInput(req.body.email);
+  const password = sanitizeInput(req.body.password);
 
   // Verifications
   if (!name) errors.push("Name is required.");
@@ -22,12 +17,15 @@ export function sanitizeAdminData(admin) {
   if (!validator.isEmail(email)) errors.push("Invalid email format.");
 
   if (errors.length > 0) {
-    throw new Error(errors.join(" "));
+    res.status(422).json(errors.join(" "));
+  } else {
+    req.newAdmin = { name, email, password };
+    next();
   }
 
-  return { name, email, password };
 }
 
+//todo VERIFICAR SE TÁ OK
 export function sanitizeUpdatedAdminData(admin) {
   const errors = [];
   let name, email, password;

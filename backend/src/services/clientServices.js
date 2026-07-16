@@ -1,4 +1,4 @@
-import { sanitizeClientData, sanitizeUpdatedClientData } from "../middlewares/sanitizeClients.js";
+// import { sanitizeClientData, sanitizeUpdatedClientData } from "../middlewares/sanitizeClients.js";
 import ClientModel from "../models/clientModel.js";
 // import AdminModel from "../models/adminModel.js"; 
 import bcrypt from 'bcrypt';
@@ -7,7 +7,6 @@ export default class ClientServices {
 
   constructor() {
     this.clientModel = new ClientModel();
-    // this.adminModel = new AdminModel();
   };
 
   async fetchActiveClients() {
@@ -24,10 +23,9 @@ export default class ClientServices {
 
   async fetchCreateClient(client) {
 
-    // sanitize
-    const sanitizedClient = sanitizeClientData(client);
+    const errors = [];
 
-    // verify date of bi
+    // verify date of birth
     const birthDate = new Date(client.date_of_birth);
     const age = new Date().getFullYear() - birthDate.getFullYear();
     if (isNaN(birthDate.getTime())) errors.push("Invalid date of birth.");
@@ -42,37 +40,44 @@ export default class ClientServices {
     //todo não estou certo do código. todo telefone começa com 06 ou 07? É isso que o regex diz ou eu entendi errado?
 
     // verify existing email
-    const emailExists = await this.clientModel.queryClientByEmail(sanitizedClient.email)
+    const emailExists = await this.clientModel.queryClientByEmail(client.email)
     if (emailExists) {
       throw new Error('Email already registered.');
     }
 
     const saltRounds = 10; //the bigger the safer, but longer to process. 10 is standard, good enough, 14 is strong
-    const hashedPassword = await bcrypt.hash(sanitizedClient.password, saltRounds);
+    const hashedPassword = await bcrypt.hash(client.password, saltRounds);
 
     const clientToCreate = {
-      name: sanitizedClient.name,
-      date_of_birth: sanitizedClient.date_of_birth,
-      address: sanitizedClient.address,
-      complement: sanitizedClient.complement,
-      postal_code: sanitizedClient.postal_code,
-      city: sanitizedClient.city,
-      phone: sanitizedClient.phone,
-      email: sanitizedClient.email,
+      name: client.name,
+      date_of_birth: client.date_of_birth,
+      address: client.address,
+      complement: client.complement,
+      postal_code: client.postal_code,
+      city: client.city,
+      phone: client.phone,
+      email: client.email,
       password: hashedPassword,
-      client_type: sanitizedClient.client_type,
-      status: sanitizedClient.status,
-      fk_id_admin: sanitizedClient.fk_id_admin,
-      registration_date: sanitizedClient.registration_date
+      client_type: client.client_type,
+      status: "active",
+      fk_id_admin: client.fk_id_admin,
+      registration_date: client.registration_date
     };
 
-    const createdClient = await this.clientModel.queryCreateClient(clientToCreate);
-    return createdClient;
+
+    if (errors.length > 0) {
+      throw new Error(errors.join(" "));
+    } else {
+      const createdClient = await this.clientModel.queryCreateClient(clientToCreate);
+      return createdClient;
+    }
   };
 
   async fetchUpdateClient(update, id) {
 
-    const sanitizedUpdatedClient = sanitizeUpdatedClientData(update);
+    //TODO PRECISO VOLTAR AQUI PRA PENSAR EM TIRAR O SANITIZE, JÁ QUE VIROU MIDDLEWARE
+
+    // const sanitizedUpdatedClient = sanitizeUpdatedClientData(update);
 
     // verify existing email
     const emailExists = await this.clientModel.queryClientByEmail(sanitizedUpdatedClient.email)
