@@ -1,10 +1,10 @@
 export default class Admin {
   constructor({ id_admin, name, email, status = "active", password, registration_date = new Date() }) {
 
-    const validStatus = ["active", "inactive"];
-    if (!validStatus.includes(status)) {
-      throw new Error(`Invalid status: "${status}". Must be "active" or "inactive".`);
-    }
+    // const validStatus = ["active", "inactive"];
+    // if (!validStatus.includes(status)) {
+    //   throw new Error(`Invalid status: "${status}". Must be "active" or "inactive".`);
+    // }
 
     this.id_admin = id_admin;
     this.name = name;

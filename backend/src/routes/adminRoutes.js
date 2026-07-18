@@ -15,6 +15,8 @@ router.patch('/:id', sanitizeUpdatedAdminData, adminController.updateAdmin.bind(
 router.patch('/restore/:id', adminController.restoreAdmin.bind(adminController));  //todo sanitizeUpdated? a ver
 router.delete('/:id', adminController.deleteAdmin.bind(adminController));
 
+router.post('/login', adminController.loginAdmin.bind(adminController));
+
 
 
 export default router;

@@ -1,6 +1,8 @@
 // import { sanitizeAdminData, sanitizeUpdatedAdminData } from "../middlewares/sanitizeAdmin.js";
 import AdminModel from "../models/adminModel.js";
 import bcrypt from 'bcrypt';
+import jwt from "jsonwebtoken";
+import jwtConfig from "../jwtConfig.js";
 
 export default class AdminServices {
 
@@ -9,8 +11,6 @@ export default class AdminServices {
   };
 
   async fetchCreateAdmin(admin) {
-
-    const errors = [];
 
     // verify existing email
     const emailExists = await this.adminModel.queryAdminByEmail(admin.email)
@@ -27,12 +27,8 @@ export default class AdminServices {
       password: hashedPassword,
     };
 
-    if (errors.length > 0) {
-      throw new Error(errors.join(" "));
-    } else {
-      const createdAdmin = await this.adminModel.queryCreateAdmin(adminToCreate);
-      return createdAdmin;
-    }
+    const createdAdmin = await this.adminModel.queryCreateAdmin(adminToCreate);
+    return createdAdmin;
 
   };
 
@@ -54,4 +50,28 @@ export default class AdminServices {
   };
 
   //todo CRIAR AQUI UM DELETE PARA CONTROLAR A RESPOSTA QUE TEM QUE DAR O OBJETO DO ADMIN DELETADO
+
+
+  async fetchLoginAdmin(email, password) {
+
+    const admin = await this.adminModel.queryAdminByEmail(email);
+    if (!admin) {
+      throw new Error('Wrong e-mail or password.');
+    }
+    const compare = await bcrypt.compare(password, admin.password);
+
+    if (compare) {
+      const token = jwt.sign({
+        id: admin.id_admin,
+        role: "admin"
+      },
+        jwtConfig.secret,
+        { expiresIn: jwtConfig.expiresIn }
+      )
+      return token;
+
+    } else {
+      throw new Error('Wrong e-mail or password.');
+    }
+  }
 };

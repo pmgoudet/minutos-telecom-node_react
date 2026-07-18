@@ -11,9 +11,12 @@ export default class AdminController {
     this.adminModel = new AdminModel();
   }
 
+  //!OK
   async getActiveAdmins(req, res) {
     try {
-      const admins = await this.adminModel.queryActiveAdmins();
+      const adminsQuery = await this.adminModel.queryActiveAdmins();
+      const admins = adminsQuery.map(admin => new Admin(admin));
+
       res.status(200).json(admins);
     } catch (err) {
       res.status(500).json({ err: 'Internal Server Error' });
@@ -22,23 +25,27 @@ export default class AdminController {
 
   async getInactiveAdmins(req, res) {
     try {
-      const admins = await this.adminModel.queryInactiveAdmins();
+      const adminsQuery = await this.adminModel.queryInactiveAdmins();
+      const admins = adminsQuery.map(admin => new Admin(admin));
+
       res.status(200).json(admins);
     } catch (err) {
       res.status(500).json({ error: 'Internal Server Error' });
     }
   }
 
+  //!OK
   async getAdminById(req, res) {
     try {
       const id = req.params.id;
 
-      //todo gestão de erros
       if (id && Number(id)) {
-        const admin = await this.adminModel.queryAdminById(id);
-        if (!admin) {
+        const adminQuery = await this.adminModel.queryAdminById(id);
+        if (!adminQuery) {
           return res.status(404).send("Admin not found");
         }
+
+        const admin = new Admin(adminQuery);
         res.status(200).json(admin);
       } else {
         res.status(422);
@@ -46,11 +53,11 @@ export default class AdminController {
       }
 
     } catch (err) {
-      res.status(500);
-      res.send(err.message);
+      res.status(500).json({ error: 'Internal Server Error' });
     }
   }
 
+  //!OK
   async createAdmin(req, res) {
     try {
 
@@ -71,7 +78,8 @@ export default class AdminController {
     }
   }
 
-  async updateAdmin(req, res) {  //todo JWT para validação do ID
+  //todo JWT para validação do ID
+  async updateAdmin(req, res) {
     try {
       const id = req.params.id
 
@@ -93,8 +101,7 @@ export default class AdminController {
       }
 
     } catch (error) {
-      res.status(500)
-      res.send(error.message)
+      res.status(500).send(error.message)
     }
   }
 
@@ -102,6 +109,8 @@ export default class AdminController {
   // async updateAdminPassword(req, res) { 
   // }
 
+
+  //!todo AQUI SÓ FALTA DEVOLVER O NOME DO CLIENTE JUNTO COM O ID POR UX
   async deleteAdmin(req, res) {
 
     try {
@@ -110,7 +119,7 @@ export default class AdminController {
       if (id && Number(id)) {
         await this.adminModel.queryDeleteAdmin(id);
         res.status(201);
-        res.send(`The admin of ID:${id} has been disabled. ${json(this.adminModel)}`);
+        res.send(`The admin of ID:${id} has been disabled.`);
       } else {
         res.status(422)
         res.send("Invalid ID.")
@@ -122,7 +131,7 @@ export default class AdminController {
     }
   }
 
-
+  //!OK
   async restoreAdmin(req, res) {
     try {
       const id = req.params.id;
@@ -133,13 +142,24 @@ export default class AdminController {
         res.send(`The admin of ID:${id} has been restored.`);
       } else {
         0
-        res.status(422)
-        res.send("Invalid ID.")
+        res.status(422).send("Invalid ID.");
       }
 
     } catch (error) {
-      res.status(500)
-      res.send(error.message)
+      res.status(500).send(error.message);
+    }
+  }
+
+  //TODO
+  async loginAdmin(req, res) {
+    try {
+      const email = req.body.email;
+      const password = req.body.password;
+      const logAdmin = await this.adminServices.fetchLoginAdmin(email, password);
+
+      res.status(200).send(logAdmin)
+    } catch (error) {
+      res.status(500).send(error.message);
     }
   }
 }

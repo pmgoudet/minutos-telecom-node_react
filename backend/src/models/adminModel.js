@@ -30,7 +30,7 @@ export default class AdminModel {
 
   async queryAdminByEmail(email) {
     const db = await connect();
-    const [rows] = await db.query(`SELECT email FROM admins WHERE email = ? LIMIT 1`, [email]);
+    const [rows] = await db.query(`SELECT id_admin, email, password, status FROM admins WHERE email = ? LIMIT 1`, [email]);
     return rows[0];
   };
 
@@ -50,7 +50,7 @@ export default class AdminModel {
     await db.query(`UPDATE admins SET status = 'inactive' WHERE id_admin = ?`, [id]);
   }
 
-  async restoreAdmin(id) {
+  async queryRestoreAdmin(id) {
     const db = await connect();
     await db.query(`UPDATE admins SET status = 'active' WHERE id_admin = ?`, [id]);
   }

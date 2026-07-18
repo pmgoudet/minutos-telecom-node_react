@@ -1,11 +1,6 @@
 export default class Client {
   constructor({ id_client, name, date_of_birth, address, complement, postal_code, city, phone, email, password, client_type, status = "active", fk_id_admin, registration_date = new Date() }) {
 
-    // const validStatus = ["active", "inactive"];
-    // if (!validStatus.includes(status)) {
-    //   throw new Error(`Invalid status: "${status}". Must be "active" or "inactive".`);
-    // }
-
     const validClientType = ["residential", "corporate"];
     if (!validClientType.includes(client_type)) {
       throw new Error(`Invalid type: "${client_type}". Type must be "residential" or "corporate".`);

@@ -4,9 +4,9 @@ export default class ClientModel {
 
   async queryActiveClients() {
     const db = await connect();
-    const [rows] = await db.query("SELECT id_client, name, date_of_birth, address, complement, postal_code, city, phone, email, password, client_type, status, fk_id_admin, registration_date FROM clients WHERE status = 'active'");
+    const [rows] = await db.query("SELECT id_client, name, date_of_birth, address, complement, postal_code, city, phone, email, client_type, status, fk_id_admin, registration_date FROM clients WHERE status = 'active'");
     return rows;
-  }; //! left "password" to test Client.toJSON() method; 
+  };
 
   async queryInactiveClients() {
     const db = await connect();
@@ -22,9 +22,9 @@ export default class ClientModel {
 
   async queryClientByEmail(email) {
     const db = await connect();
-    const [rows] = await db.query(`SELECT email FROM clients WHERE email = ? LIMIT 1`, [email]);
+    const [rows] = await db.query(`SELECT email, password FROM clients WHERE email = ? LIMIT 1`, [email]);
     return rows[0];
-  };
+  }; //! left "password" to test Client.toJSON() method; Only leave password if login
 
   async queryCreateClient(client) {
     const db = await connect();
