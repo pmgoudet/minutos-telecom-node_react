@@ -6,7 +6,7 @@
 
 
 * {
-  user-select: none;
+  user-select: text;
   font-family: 'Inter', sans-serif;
 }
 

@@ -1,6 +1,8 @@
 import { Router } from "express";
 import ClientController from "../controllers/clientController.js";
 import { sanitizeClientData, sanitizeUpdatedClientData } from "../middlewares/sanitizeClients.js";
+import { authMiddleware } from "../middlewares/authorization.js";
+
 
 const router = Router();
 const clientController = new ClientController();
@@ -15,6 +17,7 @@ router.patch('/:id', sanitizeUpdatedClientData, clientController.updateClient.bi
 router.patch('/restore/:id', clientController.restoreClient.bind(clientController)); //todo sanitizeUpdated? a ver
 router.delete('/:id', clientController.deleteClient.bind(clientController));
 
+router.post('/login', clientController.loginClient.bind(clientController));
 
 
 export default router;

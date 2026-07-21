@@ -34,20 +34,18 @@ export default class AdminServices {
 
   async fetchUpdateAdmin(update, id) {
 
-    //TODO PRECISO VOLTAR AQUI PRA PENSAR EM TIRAR O SANITIZE, JÁ QUE VIROU MIDDLEWARE
-
-    // const sanitizedUpdatedAdmin = sanitizeUpdatedAdminData(update);
-
     // verify existing email
-    const emailExists = await this.adminModel.queryAdminByEmail(sanitizedUpdatedAdmin.email)
+    const emailExists = await this.adminModel.queryAdminByEmail(update.email)
     if (emailExists) {
       throw new Error('Email already registered.');
     };
 
-    //! falta controle de password
-
     this.adminModel.queryUpdateAdmin(sanitizedUpdatedAdmin, id);
   };
+
+  async fetchUpdatePasswordAdmin(password, id) {
+  }
+
 
   //todo CRIAR AQUI UM DELETE PARA CONTROLAR A RESPOSTA QUE TEM QUE DAR O OBJETO DO ADMIN DELETADO
 

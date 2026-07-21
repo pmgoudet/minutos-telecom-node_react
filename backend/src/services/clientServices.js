@@ -2,23 +2,13 @@
 import ClientModel from "../models/clientModel.js";
 // import AdminModel from "../models/adminModel.js"; 
 import bcrypt from 'bcrypt';
+import jwt from "jsonwebtoken";
+import jwtConfig from "../jwtConfig.js";
 
 export default class ClientServices {
 
   constructor() {
     this.clientModel = new ClientModel();
-  };
-
-  async fetchActiveClients() {
-    this.clientModel.queryActiveClients()
-  };
-
-  async fetchInactiveClients() {
-    this.clientModel.queryInactiveClients()
-  };
-
-  async fetchClientById() {
-    this.clientModel.queryClientById()
   };
 
   async fetchCreateClient(client) {
@@ -113,7 +103,28 @@ export default class ClientServices {
     //todo REGISTER EACH MODIFICATION AND THE ID OF THE ADMIN WHO'S DONE THAT
   };
 
+  async fetchLoginClient(email, password) {
 
+    const client = await this.clientModel.queryClientByEmail(email);
+    if (!client) {
+      throw new Error('Wrong e-mail or password.');
+    }
+    const compare = await bcrypt.compare(password, client.password);
+
+    if (compare) {
+      const token = jwt.sign({
+        id: client.id_client,
+        role: "client"
+      },
+        jwtConfig.secret,
+        { expiresIn: jwtConfig.expiresIn }
+      )
+      return token;
+
+    } else {
+      throw new Error('Wrong e-mail or password.');
+    }
+  }
 
 
 };

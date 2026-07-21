@@ -178,4 +178,19 @@ export default class ClientController {
       res.send(error.message)
     }
   }
+
+  //!OK
+  async loginClient(req, res) {
+    try {
+      const email = req.body.email;
+      const password = req.body.password;
+      const logClient = await this.clientServices.fetchLoginClient(email, password);
+
+      res.status(200).send(logClient)
+    } catch (error) {
+      res.status(500).send(error.message);
+    }
+  }
+
+
 }

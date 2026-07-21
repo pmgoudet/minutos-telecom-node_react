@@ -1,6 +1,7 @@
 import { Router } from "express";
 import AdminController from "../controllers/adminController.js";
-import { sanitizeAdminData, sanitizeUpdatedAdminData } from "../middlewares/sanitizeAdmin.js";
+import { sanitizeAdminData, sanitizeUpdatedAdminData, sanitizeUpdatedPasswordAdmin } from "../middlewares/sanitizeAdmin.js";
+import { authMiddleware } from "../middlewares/authorization.js";
 
 const router = Router();
 const adminController = new AdminController();
@@ -17,6 +18,10 @@ router.delete('/:id', adminController.deleteAdmin.bind(adminController));
 
 router.post('/login', adminController.loginAdmin.bind(adminController));
 
+
+//!TESTES
+
+router.post('/test-password', sanitizeUpdatedPasswordAdmin, (req, res) => res.status(200).json(req.newAdminPassword))
 
 
 export default router;

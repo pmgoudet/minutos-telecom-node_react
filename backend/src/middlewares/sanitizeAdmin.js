@@ -22,31 +22,55 @@ export function sanitizeAdminData(req, res, next) {
     req.newAdmin = { name, email, password };
     next();
   }
-
 }
 
 //todo VERIFICAR SE TÁ OK
-export function sanitizeUpdatedAdminData(admin) {
+export function sanitizeUpdatedAdminData(req, res, next) {
   const errors = [];
-  let name, email, password;
+  const name = req.body.name;
+  const email = req.body.email;
+  let newName = "";
+  let newEmail = "";
 
   // Individual sanitizing
-  if (admin.name) {
-    name = sanitizeInput(admin.name);
-  }
-  if (admin.email) {
-    console.log("EMAIL RECEBIDO:", admin.email);
-    email = sanitizeInput(admin.email);
-    if (!validator.isEmail(email)) errors.push("Invalid email format.");
+  if (name) {
+    newName = sanitizeInput(name);
   }
 
-  //todo if (admin.password) {
-  //   password = sanitizeInput(admin.password);
-  // }
+  if (email) {
+    newEmail = sanitizeInput(email);
+    if (!validator.isEmail(newEmail)) {
+      errors.push("Invalid email format.");
+    }
+  }
 
   if (errors.length > 0) {
-    throw new Error(errors.join(" "));
-  }
+    res.status(422).json(errors.join(" "));
+  } else {
+    req.updatedAdmin = { name: newName, email: newEmail }
+  };
+  next();
+}
 
-  return { name, email, password };
+export function sanitizeUpdatedPasswordAdmin(req, res, next) {
+  const errors = [];
+
+  // Individual sanitizing
+  const newPassword = sanitizeInput(req.body.password);
+  console.log(newPassword)
+  const confirmNewPassword = sanitizeInput(req.body.confirmPassword);
+
+  // Verifications
+  if (!newPassword || !confirmNewPassword) errors.push("Both fields are required.");
+
+  if (newPassword !== confirmNewPassword) {
+    res.status(400).send("Password confirmation does not match.")
+  } else {
+    if (errors.length > 0) {
+      res.status(422).json(errors.join(" "));
+    } else {
+      req.newAdminPassword = { newPassword };
+      next();
+    }
+  }
 }

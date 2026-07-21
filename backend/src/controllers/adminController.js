@@ -23,6 +23,7 @@ export default class AdminController {
     }
   }
 
+  //!OK
   async getInactiveAdmins(req, res) {
     try {
       const adminsQuery = await this.adminModel.queryInactiveAdmins();
@@ -106,9 +107,9 @@ export default class AdminController {
   }
 
   //todo UPDATE PASSWORD
-  // async updateAdminPassword(req, res) { 
-  // }
+  async updateAdminPassword(req, res) {
 
+  }
 
   //!todo AQUI SÓ FALTA DEVOLVER O NOME DO CLIENTE JUNTO COM O ID POR UX
   async deleteAdmin(req, res) {
@@ -150,7 +151,7 @@ export default class AdminController {
     }
   }
 
-  //TODO
+  //!OK
   async loginAdmin(req, res) {
     try {
       const email = req.body.email;
